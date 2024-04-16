@@ -4,6 +4,9 @@ stylo ah online is a online tool to compute comparative text analysis in your br
 
 # Usage
 
+Manual: [in german language]([manual/README.md](http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch))
+Online tool: [stylo-ah-online](http://replicatio.science/~khk/styloonline/) 
+
 # Installation
 
 You may run the website on your own server. To do so, you need the index.HTML in place and in the same folder the interfff.JS, also you have to link against some libraries that are also present in this github account. The libraries are "svgdrawinglib.js", "textnorm.js", "strdist.js", "textdecomp.js", "vecspmeasures.js" and "clust.js". There is no third party implementation needed.
