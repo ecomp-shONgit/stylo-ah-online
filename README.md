@@ -9,4 +9,4 @@ Online tool: [stylo-ah-online](http://replicatio.science/~khk/styloonline/)
 
 # Installation
 
-You may run the website on your own server. To do so, you need the index.HTML in place and in the same folder the interfff.JS, also you have to link against some libraries that are also present in this github account. The libraries are "svgdrawinglib.js", "textnorm.js", "strdist.js", "textdecomp.js", "vecspmeasures.js" and "clust.js". There is no third party implementation needed.
+You may run the website on your own server. To do so, you need the index.HTML in place and in the same folder the interfff.JS, also you have to link against some libraries that are also present in this github account. The libraries are "svgdrawinglib.js", ["textnorm.js"](https://github.com/ecomp-shONgit/text-normalisation), ["strdist.js"](https://github.com/ecomp-shONgit/string-distance), ["textdecomp.js"](https://github.com/ecomp-shONgit/text-decomtrans), ["vecspmeasures.js"](https://github.com/ecomp-shONgit/vector-measures) and ["clust.js"](https://github.com/ecomp-shONgit/cluster-and-embed). There is no third party implementation needed.
