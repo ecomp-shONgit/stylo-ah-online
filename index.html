@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta charset="utf-8" />
+        <title>stylo-ah-online</title>
+
+        <meta name="description" content="text norm decomposition counting meassuring and clustering tool" />
+        <meta name="author" content="prof. charlotte schubert, khk" />
+
+        <!--script type="text/javascript" src="../js/abkAW.js"></script-->
+        <!--script type="text/javascript" src="../js/numeric.js"></script--> 
+        <script type="text/javascript" src="../js/svgdrawinglib.js"></script> 
+        <script type="text/javascript" src="../js/textnorm.js"></script> 
+        <script type="text/javascript" src="../js/strdist.js"></script> 
+        <script type="text/javascript" src="../js/textdecomp.js"></script>
+        <script type="text/javascript" src="../js/vecspmeasures.js"></script>   
+        <script type="text/javascript" src="../js/clust.js"></script>    
+	    <script type="text/javascript" src="interfff.js"></script> 
+        
+        
+        <style>
+            body{ font-family:"Segoe UI","Arial"; }
+            .webhead{padding: 10px; margin:20px;}
+            .webdesc{padding: 20px; background: #007AC3;font-style:italic; margin:20px; border-radius: 0px 0px 0px 30px}
+            .partin{font-sytle:regular; border-bottom: 5px solid #7CCAAE;margin-left:20px;margin-right:20px;vertical-align:top;}
+            h1{ font-weight: bold; color:#222; text-align: left; font-size:140%;}
+            h2{ font-weight: bold; color:#007AC3; text-align: left; font-size:120%; }
+            h3{ font-weight: bold; color:#007AC3; text-align: left; font-size:110%;}
+            .webfoot{margin:20px;border-top: 2px solid #007AC3; margin-bottom:150px;}
+            i{color:gray;}
+            input{margin:2px;}
+            select{margin:2px;}
+            #popup{display:none; z-index:2; position:absolute;}
+            .sidebyside{display: inline-block;width: 49%;vertical-align:top;}
+            .zwischenergdisp{padding:5px; overflow:auto; max-height:500px; border:1px solid #7CCAAE;}
+            .clicki{cursor:pointer;}
+            .loadsymbol{border: 10px solid #f3f3f3; /* Light grey */
+                        border-top: 10px solid #007AC3; /* Blue */
+                          border-bottom: 10px solid #007AC3;
+                          border-radius: 50%;
+                          width:  50px;
+                          height: 50px;
+                          
+                          animation: spin 2s linear infinite;
+                          display: none;}
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            #floatmenu{
+                
+                background: #007AC3;
+                display:none;
+                position: absolute;
+                margin-left:20%;
+                font-size:80%;
+                padding:5px;
+                width:50%;
+            }
+            #floatmenu a{
+                color:black;
+                margin-right:10px;
+            }
+        </style>
+
+	</head>
+
+	<body>
+    
+    <div id="floatmenu">
+        <a href="#namingmen">Naming</a>
+        <a href="#configurationmen">Configuration</a>
+        <a href="#inputmen" style="color:red;">Input</a>
+        <a href="#normalizationmen">Normalization</a>
+        <a href="#tokenmen">Token</a>
+        <a href="#countingmen">Counting</a>
+        <a href="#measuremen">Measure</a>
+        <a href="#clusteringmen">Clustering</a>
+        <a href="#exportmen">Export</a>
+    </div>
+    
+    <div class="webhead">
+    <a href="http://www.uni-trier.de"><img src="lutsss.png" style="width:20%; margin-right:10%;"></a>
+    <a href="http://www.uni-trier.de"><img src="uni_leipzig_logo_v2.svg" style="width:20%; margin-right:10%;"></a>
+    <span style="text-decoration:none; font-weight: bold; color: #007AC3;font-size:300%;"> stylo-ah-online </span>
+    </div>
+    
+    <div class="webdesc">Use the tool stylo-ah-online to analyse your corpus of texts. It is lightweight, 
+    in-browser software to perform text analysis in terms of token, token statistics, 
+    distances and clustering. Usage: <br>
+    - Set the browser location to save to. Enable multiple file downloads.<br>
+    - USE CHROME (at the moment this is the dev environment, other browsers will be supported by a later version)<br>
+    - First do the configuration, than open the files (multiple selection), that will run the analysis. <br>
+    - Open up the web console, to get the messages, about the progress or errors of the analysis process.<br>
+    
+    - <a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch">Manual and further information</a><br>
+    - <a href="mailto:kahlh@uni-trier.de">Email to the admin.</a><br>
+    
+    <br><br>
+    Version: Beta 05.2024-03-05 </div>
+
+    
+        
+    <form>
+    
+    <div class="partin">
+        <h1><a id="namingmen">Naming</a></h1>
+            <select id="nametype" onchange="buildaname();">
+                <option selected value="0">No type selected</option>
+                <option value="1">protocol</option>
+                <option value="2">draft</option>
+                <option value="3">explanation</option>
+                <option value="4">experiment</option>
+            </select> <input type="text" id="nametypeown" value="" onchange="buildaname();"> Type <i>(Select/give a type, if this is not given by file ending.)</i><br>
+            <input type="text" id="namesubject" value="" onchange="buildaname();"> Subject <i>(Name the subject of the file.)</i><br>
+            <select id="namestate" onchange="buildaname();">
+                <option value="0">No state selected</option>
+                <option value="1">final</option>
+                <option value="2">prefinal</option>
+                <option value="3">first draft</option>
+                <option value="4">finished</option>
+                <option value="5">unfinished</option>
+            </select> <input type="text" id="namestateown" value="" onchange="buildaname();"> State <i>(Select/give a state, if this is not given by file ending.)</i><br>
+            <input type="text" id="nameid" value="" onchange="buildaname();"> ID <i>(Give the ID of the file.)</i><br>
+            <input type="text" id="namedatelook" value="" onchange="buildaname();"> Date <i>(The actual date, erase to reset.)</i><br>
+            
+            <input type="text" id="nameversion" value="" onchange="buildaname();"> Version <i>(Choose a version of the file.)</i><br>
+            <input type="text" id="nameautorenname" value="" onchange="buildaname();"> Author name <i>(Fill in the name of the author.)</i><br>
+            <input type="text" id="nameendung" value="" onchange="buildaname();"> File ending <i>(Provide a file ending.)</i><br>
+            <input type="text" id="readynaming" value="" size="80%" readonly="true"><br>
+            <textarea id="protokollnaming" rows="4" cols="80"></textarea><br><i>(Log entry of naming section.)</i><br>     
+    </div>
+
+    <div class="partin">
+        <h1><a id="configurationmen">Configuration</a></h1>
+            <h2>Config for text analysis</h2>
+            <input type="button" id="sisaconf" value="Save conf file" onclick="downelmarray = []; themanydownloadfiles=1; writeconfigfile();"> <i>(This will 
+                run the analysis again, if you made changes to the settings below.)</i><br>
+                
+            <input type="file" onchange="readinconfigurationfile(this);"/> <i>(Choose a existing 
+                stylo-online configuration file to set the configuration for stylo-online.)</i><br> 
+            
+            <h2>GEN config for SERIAL text analysis</h2>
+            <input type="button" id="gencondecomp" value="Gen all config token" onclick="genallctoken();"> <i>(This will generate config files for each token version (1-3 gram), but leaves the other configuration unchanged.)</i><br>
+            <input type="button" id="genconcount" value="Gen all config counting" onclick="genallccount();"> <i>(This will generate config files for each counting method, but leaves the other configuration unchanged.)</i><br>
+            <input type="button" id="genconmeasures" value="Gen all config measures" onclick="genallcmeasure();"> <i>(This will generate config files for each measure, but leaves the other configuration unchanged.)</i><br>
+            
+            
+            <h2>Config for stylo-ah-online display</h2>
+            <input type="checkbox" id="styloahdisplengthdisp" name="styloahdisplengthdisp" checked /> Display size of 
+                results <i>(Checked: Just show a sample of the results (1000 token/signs). 
+                Not checked: Results will be shown in full length.)</i> <br>
+            
+            <h2>Delete</h2>
+            <input type="button" id="delconfid" value="Delete configuration" onclick="delconfigofall();"> <i>(This will delete the configuration.)</i><br>
+            <input type="button" id="deldbid" value="Delete data base" onclick="deleteDB();"> <i>(This will delete the stored files and the results of the analysis.)</i><br>
+            <input type="button" id="delaallid" value="Reset stylo-ah-online" onclick="resetall();"> <i>(This will reset stylo ah online to start an new analysis.)</i><br>
+    </div>
+
+
+
+    <div class="partin">
+        <span class="sidebyside">
+            <h1 style="color:red; background:#7CCAAE;"><a id="inputmen">Input / Replication</a></h1>
+                <input type="file" multiple onchange="run(this);"/> <i>(Just choose 
+                    the CORPUS FILES, than the selection below will be applyed (start analysis). 
+                    Data in the data base will be overwritten.)</i><br>
+                
+                <input type="button" id="rerubu" value="Re-run anaylsis" onclick="rerun();"> <i>(This will RUN the 
+                    analysis AGAIN, if you made changes to the settings below. 
+                    Data is taken from the data base.)</i><br>
+                    
+                <input type="file" multiple onchange="getmulticonfig(this);"/> <i>(Choose MULTIPLE config files 
+                    to perfom multiple analysis on one corpus.)</i><br>
+                    
+                <select id="selrerunfiles" onchange="resetfnames();" multiple>
+                    
+                </select> <i>(Select some data from the database to rerun on. <input type="button" value="SHOW FILES IN USE" onclick="showallfnames()">)</i><br>
+            
+                <div id="loadshow" class="loadsymbol"></div>
+                <div id="errorshow" class="loadsymbol"></div>
+            <h2>Note</h2>
+                <textarea id="protokollinput" rows="4" cols="80"></textarea><br><i>(Log entry for the input section.)</i><br>
+        </span>
+        <span class="sidebyside" id="resultsofinput"><div class="zwischenergdisp" id="zwischenergshow1"></div></span>
+    </div>
+
+
+
+    <div class="partin">
+        <span class="sidebyside">
+        <h1><a id="normalizationmen">NORMALIZATION</a></h1>
+            <i>(Please check <a href="http://ecomparatio.net/~khk/NORM-DECOMP-DIST/textnorm.html">
+               http://ecomparatio.net/~khk/NORM-DECOMP-DIST/textnorm.html</a> to see some examples of how the selection would work.)
+            </i>
+            <!--h2>Unicode normalization</h2-->
+            <select id="normalformsel" style="display:none;">
+                <option value="0" selected="true">Unicode NFKD (default)</option>
+                <option value="1">Unicode NFD </option>
+                <option value="2">Unicode NFKC</option>
+                <option value="3">Unicode NFC </option>
+            </select> <!--i>(Select one; it is the normalization of the output. During other normalization steps another unicode normalization maybe used.)</i><br-->
+
+            <h2>Word masking / stop words</h2>
+            <input type="radio" id="noneusestopwlist" name="stostolili" checked /> None<br>
+            <input type="radio" id="usestopwlist" name="stostolili" /> Use Word masking <i>(Give back the string without stop words.)</i><br>
+            <input type="radio" id="useinvstopwlist" name="stostolili" /> Use positiv stop word list <i>(Give back the string of only stop words.)</i><br>
+            <input type="button" id="modshowstopwlist" value="Show stop word list" onclick="showstopwordlist()" /> <i>(Check this to apply stop word removal.)</i><br>
+            <input type="file" onchange="readinstopwordlist(this);"/> <i>(Choose a existing stop word file (CSV format, divider: ;;).)</i><br>
+            
+            <h2>Sign equalization</h2>
+            <input type="checkbox" id="disambidiak"> Disambiguate diacritica <br>
+            <input type="checkbox" id="disambidashes"> Disambiguate dashes <br>
+            <input type="checkbox" id="uv"> Text output latin u-v <i>(repaces all u with v)</i></br>
+            <input type="checkbox" id="ji"> Text output latin j-i <i>(repaces all j with i)</i></br>
+            <input type="checkbox" id="iota"> Iota sub to ad <i>(takes greek utf8 string and repleces iota subscriptum with iota ad scriptum)</i></br>
+            <input type="checkbox" id="sigma"> Text output tailing sigma uniform <i>(equalize tailing sigma)</i></br>
+            <input type="checkbox" id="deldiak"> Text output without diacritics <i>(replaces diacritics)</i></br>
+            <input type="checkbox" id="unkown"> Text output without some signs <i>(delete some to the programmer unknown signs: †, *, ⋖, #, §, ⁑)</i></br>
+            <input type="checkbox" id="ligatu"> Text output without ligature <i>(takes a string, return string with ligatures turned to single letters)</i></br>
+            <input type="checkbox" id="eqcase"> Text output equal case <i>(input a string and get it back with all small case letters)</i></br>
+            <input type="checkbox" id="delbrackets"> Text output no brackets <i>(input string and get it back with no brackets)</i></br>
+
+            <h2>Markup / Format</h2>
+            <input type="checkbox" id="womarkup"> Without markup <i>(input a string and get it back with markup (html / xml) removed)</i></br>
+            <input type="checkbox" id="delpunktu"> Delete punctuation <i>(takes string and returns the string without punctuation)</i></br>
+            <input type="checkbox" id="delnewl"> Without newline <i>(input string and get it back with linebreaks removed)</i></br>
+
+            <h2>Word level conversions</h2>
+            <input type="checkbox" id="elisions"> Elision expansion <i>(elusion it will be expanded)</i><br>
+            <input type="checkbox" id="alphapriv"> Alpha privativum  / copulativum <i>(takes utf8 greek and splits the alpha privativum and copulativum from wordforms)</i></br>
+            <input type="checkbox" id="delnumber"> Text output without numbering <i>(takes string, return string without the edition numbering i.e. [2])</i></br>
+            <input type="checkbox" id="hyph"> Text output no hypenation <i>(removes hyphenation)</i></br>
+ 
+
+            <h2>Combinations</h2>
+            <!--i>(Select one of the combined normalization functions (none of the single steps is used).)</i></br>
+            <input type="checkbox" id="basictextnorm"> Text output basic norm <i>(basic equalization and hypenation reversal)</i></br>
+            <input type="checkbox" id="delall"> Text output all deleted <i>(deletes UV/JI, brackets, sigma, lower, hyphenation, ligatures, punctuation, edition numbering, unknown signs, diakritics)</i></br>
+            <input type="checkbox" id="combi3"> Text output is a combination of steps <i>(diacritics disambiguation, normalization, hyphenation removal, linebreak to space, punctuation separation and bracket removal)</i></br-->
+
+            <select id="normcombisel" style="width:100px;">
+                <option value="0">None</option>
+                <option value="1">Text output basic norm <i>(basic equalization and hypenation reversal)</i></option>
+                <option value="2">Text output all deleted <i>(deletes UV/JI, brackets, sigma, lower, hyphenation, ligatures, punctuation, edition numbering, unknown signs, diakritics)</i></option>
+                <!--option value="3">Text output is a combination of steps <i>(diacritics disambiguation, normalization, hyphenation removal, linebreak to space, punctuation separation and bracket removal)</i></option-->
+            </select> <i>(Select one of the combined normalization functions (none of the single steps is used).)</i><br>
+            <h2>Translitteration</h2>
+            <!--i>(Select one of the transliterations.)</i><br>
+            <input type="checkbox" id="translgrla"> Text transliteration (gr-la) <i>(takes greek utf8 string and returns transliterated latin utf8 string)</i></br>
+            <input type="checkbox" id="transllagr"> Text transliteration (la-gr) <i>(takes latin utf8 string and returns transliterated greek utf8 string)</i></br-->
+
+            <select id="translitsel" style="width:100px;">
+                <option value="0">None</option>
+                <option value="1">Text transliteration (gr-la) <i>(takes greek utf8 string and returns transliterated latin utf8 string)</option>
+                <option value="2">Text transliteration (la-gr) <i>(takes latin utf8 string and returns transliterated greek utf8 string)</option>
+            </select> <i>(Select one of the transliterations.)</i><br>
+        
+        <h2>Note</h2>
+        <textarea id="protokollnorm" rows="4" cols="80"></textarea><br> <i>(Log entry for the normalization section.)</i><br>
+        </span>
+        <span class="sidebyside" id="resultsofnorm"><div class="zwischenergdisp" id="zwischenergshow2"></div></span>
+    </div>
+
+    <div class="partin">
+        <span class="sidebyside">
+        <h1><a id="tokenmen">FEATURES / DECOMPOSITION / TOKEN</a></h1> 
+            <i>(The word level decomposition and the gram decomposition will be combined. Check <a href="http://ecomparatio.net/~khk/NORM-DECOMP-DIST/zerl.html">http://ecomparatio.net/~khk/NORM-DECOMP-DIST/zerl.html</a> for some examples to see how decomposition will work.)</i>
+            
+            <h2>Word level decomposition</h2>
+            <input type="radio" id="sepdiak" style="display:none;" name="khde"> <!--span>Separation of diakritics</span-->  <!--i>(takes string and returns array of array of diakritica and array of letters)</i></br-->
+
+            <input type="radio" id="noneradio" name="khde" checked /> None<br>
+
+            <input type="radio" id="wconsos" name="khde"> Without consonants <i>(string without consonants)</i><br>
+
+            <input type="radio" id="wvocal" name="khde"> Without vowels <i>(string without vowels)</i><br>
+
+            <input type="radio" id="justklein" name="khde"> Small words <i>(string with just small words (stopwords))</i><br>
+        
+            <input type="radio" id="justgrosz" name="khde"> Big words <i>(string with just big words (not stopwords))</i><br>
+            
+
+            <h2>General N-Gram decomposition</h2>
+
+            <!--input type="checkbox" id="ngram"> Use N-Gram <i>(check this to enable ngram decomposition and use the configuration below)</i><br-->
+            <select id="gramsel">
+                    <option value="0">...</option>
+                    <option value="1">Word level (groups of words)</option>
+                    <option value="2">Sign level of words</option>
+                    <option value="3">Signs of whole string (inclu. space characters)</option>
+                    <option value="4">Gap-ngram of whole string</option>
+                    <!--option value="5">Erasegram of whole string</option-->
+                    <option value="6">Pseudo-syllables (other config of decomposition ignored)</option>
+                    <option value="7">Head-body-Coda I</option>
+                    <option value="8">All partitions (Head-body-Coda II)</option>
+                    <!--option value="9">FBN</option-->
+            </select> Gram-level<br>
+
+            
+            <input type="text" id="nofgram" value="1"> N <i>(gram-size, set to one means for example word statistics)</i><br>
+            <input type="text" id="gramgapsize" value="1"> M <i>(gap-size, for gap n-gram</i><br>
+            <select id="padsel">
+                     <option value="0">No</option>
+                     <option value="1">Yes</option>
+            </select> Padding <i>(used for sign level of words)</i><br>
+            <input type="checkbox" id="gramsteptogramsize" name="gramsteptogramsize"/> <i>(check this to set the increment of the gram building to gram size)</i><br>
+
+        
+        <h2>Note</h2>
+        <textarea id="protokolltoken" rows="4" cols="80"></textarea><br><i>(Log entry for the token section.)</i><br>
+        </span>
+        <span class="sidebyside" id="resultsofdecomposition"><div class="zwischenergdisp" id="zwischenergshow3"></div></span>
+    </div> 
+        
+    <div class="partin">
+        <span class="sidebyside">
+        <h1><a id="countingmen">SELECTION / COUNTING</a></h1>
+        <select id="userelfreqdo">
+                     <option value="0">absolute frequency</option>
+                     <option value="1">relative frequency</option>
+                     <option value="2">0/1 occurrence code</option>
+                     <option value="3">TF-IDF</option>
+                     <option value="4">TF-text/TF-corpus</option>
+                     <option value="5">TF</option>
+        </select><i>(select the counting methode)</i></br>
+        
+        <h2>Most frequent token / words </h2>
+        <input type="checkbox" id="mfwpertext">  MFW per text <i> get the most frequnet word from each input text</i><br>
+        <input type="text" id="mfwmin" value="0"> Min value <i>(position in frequency ordered list)</i><br>
+        <input type="text" id="mfwmax" value="0"> Max value <i>(position in frequency ordered list)</i><br>
+        
+        <h2>Culling (per corpus)</h2>
+        <input type="text" id="mfwculllistcuttoff" value="0" style="display:none"><!--span> Maximum lenght of word (token) frequency list; will limit corpus frequnecy list.</span><br-->
+        <input type="text" id="cullingmin" value="0"> Min value <i>(per cent of presents of a token in all texts)</i><br>
+        <input type="text" id="cullingmax" value="0"> Max value <i>(per cent)</i><br>
+        
+        <h2>Text length normalization</h2>
+        <input type="checkbox" id="textlennorm"> Compare fractions of texts <i>(smallest text gives the length; none other method is applied, only on first run on corpus).</i> <br>
+        <input type="text" id="textlennormsize"> Fraction length <i>(if a number is provided, than every text will be split into frations of that size on sign level).</i><br>
+        <!--h2>Stepped series (per corpus)</h2-->
+        <input type="text" id="mfwcullinc" value="1" style="display:none;"> <!--span>Series step increment</span> <i>(if you have 500 word (token) frequencies and increment set to 100, you compute with 100 mfw (most frequnet words), 200, 300, 400 and 500 mfw)</i><br-->
+
+        
+        <h2>Note</h2>
+        <textarea id="protokollcount" rows="4" cols="80"></textarea><br><i>(Log entry for the counting section.)</i><br>
+        </span>
+        <span class="sidebyside" id="resultsofcounting"><div class="zwischenergdisp" id="zwischenergshow4"></div></span>
+    </div> 
+
+    <div class="partin">
+        <span class="sidebyside">
+        <h1><a id="measuremen">MEASURE SELECTION</a></h1>
+        <i>(Please check <a href="http://ecomparatio.net/~khk/measuredisplay">
+               http://ecomparatio.net/~khk/measuredisplay</a> to see a discription and comparison of the measures usable. See <a href="http://ecomparatio.net/~khk/NORM-DECOMP-DIST/index.php">http://ecomparatio.net/~khk/NORM-DECOMP-DIST/index.php</a> for some examples.)
+            </i><br><br>
+         <select id="measuresel" >
+            <option value="euclideanM" selected="selected">euclidean</option>
+            <option value="chebyshevM">chebyshev</option>
+            <option value="minkowskiM">minkowski</option>
+            <option value="manhattenM">manhatten</option>
+            <option value="canberraM">canberra</option>
+            <option value="soerensenM">soerensen</option>
+            <option value="gowerM">gower</option>
+            <option value="soergelM">soergel</option>
+            <!--option value="kulczynskiM">kulczynski</option-->
+            <option value="lorentzianM">lorentzian</option>
+
+            <option value="intersectionM">intersection</option>
+            <option value="wavehedgesM">wavehedges</option>
+            <option value="motykaM">motyka</option>
+            <!--option value="kulczynskisM">kulczynskis</option-->
+            <option value="ruzickaM">ruzicka</option>
+            <option value="tanimotoM">tanimoto</option>
+
+            <option value="innerproductM">innerproduct</option>
+            <option value="harmonicmeanM">harmonicmean</option>
+            <option value="cosineM">cosine</option>
+            <option value="kumarhassebrookM">kumar hasse brook</option>
+            <option value="diceM">dice</option>
+
+            <option value="fidelityM">fidelity</option>
+            <option value="bhattacarya1M">bhattacarya 1</option>
+            <option value="bhattacarya2M">bhattacarya 2</option>
+            <option value="hellingerM">hellinger</option>
+
+            <option value="jensenM">jensen</option>
+            <option value="jensenshannonM">jensen shannon</option>
+            <option value="topsoeeM">topsoee</option>
+            <option value="kullbackdivergenceM">kullback divergence</option>
+            <option value="JeffreysM">jeffreys</option>
+            <option value="kullbackleiblerM">kullback leibler</option>
+
+            <option value="squaredeuclideanM">squared euclidean</option>
+            <option value="pearsonchisquaredM">pearson chi squared</option>
+            <option value="neymanchisquaredM">neyman chi squared</option>
+            <option value="squaredchisquaredM">squared chi squared</option>
+            <option value="divergenceM">divergence</option>
+            <option value="clarckM">clarck</option>
+            <option value="additivesymmetricchisquaredM">additive symmetric chi squared</option>
+                   
+            <option value="edersimpleM">eder simple</option>
+            <option value="burrowsdeltaM">burrows delta</option>
+            <option value="argamonlineardeltaM">argamon linear delta</option>
+            <option value="edersdeltaM">eders delta</option> 
+            <option value="argamonsquadraticdeltaM"> argamons quadratic delta</option>
+
+            <option value="wasserst1dM">wasserstein 1d</option>
+
+         </select> Measure selection<br>
+        <input type="text" id="measureadd" value="0"> Measure order <i>(the order of the measure, additional to minkowski, burrows delta, argamon linear delta, eders delta, argamons quadratic delta, wasserst 1d, gower)</i><br>
+            <br>
+        <h2>Note</h2>
+        <textarea id="protokollmeasure" rows="4" cols="80"></textarea><br><i>(Log entry for the comparing section.)</i><br>
+        </span>
+        <span class="sidebyside" id="resultsofdist"><div id="distdiagramm"></div><div class="zwischenergdisp" id="zwischenergshow5"></div></span>
+    </div>
+
+    <div class="partin">
+        <span class="sidebyside">
+        <h1><a id="clusteringmen">CLUSTERING</a></h1>
+        <select id="clustsel">
+            <option value="7">hierarchical cluster analysis</option>
+            <option value="0">strict hierarchical cluster analysis</option>
+            <!--option value="1">MDS (eigenvectors)</option-->
+            <option value="2">MDS (angels)</option>
+            <!--option value="3">PCA (cov.)</option-->
+            <!--option value="4">PCA (corr.)</option-->
+            <option value="5">tSNE</option>
+            <!--option value="6">consensus tree</option-->
+            <option value="8">hierarchical CA + heat map</option>
+        </select> Cluster method<br>
+        
+        <select id="hierarclustlinkage">
+            <option value="0">single linkage</option>
+            <option value="1">avarage linkage</option>
+        </select> Hierarchical cluster linkage method<br>
+        
+        <h2>Display options</h2>
+        <input type="text" id="clustoffset" value="450"> Offset pixels <i>(set the pixel distance for the lables in the visualization; used in distance heatmap and cluster visualization)</i><br>
+        <input type="text" id="clustpicwidth" value="500"> Width of diagram <i>(set the width (pixel) of the diagram, the space for the lables is not included)</i><br>
+        <input type="text" id="clustpicheight" value="500"> Height of diagram <i>(set the height in pixels of the visualization, space for labels not included)</i><br>
+        <div id="clustaddconf">
+
+        </div>
+
+        <br>
+        <h2>Note</h2>
+        <textarea id="protokollclust" rows="4" cols="80"></textarea><br><i>(Log entry for the cluster section.)</i><br>
+        </span>
+        <span class="sidebyside" id="resultsofclust"><div class="zwischenergdisp" id="zwischenergshow6"></div></span>
+    </div> 
+
+    <div class="partin">
+        <h1><a id="exportmen">EXPORT</a></h1>
+        <h2>Export Configuration / Presets</h2>
+        <input type="checkbox" id="exportconf" checked> Export config as text file<br>
+        <input type="checkbox" id="exportstopwordfile" checked> Export stop words as CSV file<br>
+        
+        <h2>Multi file export</h2>
+        <input type="checkbox" id="expraw"  checked> Export raw text input <i>(as text file, renamed)</i><br>
+        <input type="checkbox" id="expnormed" checked> Export normed string <i>(as text file)</i><br>
+        <input type="checkbox" id="expdecomp" checked> Export decomposition <i>(as text file)</i><br>
+        <input type="checkbox" id="expcounted" checked> Export frequency of token <i>(as CSV file)</i><br>
+        
+        <h2>Single file result export</h2>
+        
+        <input type="checkbox" id="expdistmatrix" checked> Export distance matrix <i>(as text file; usable as gephi import)</i><br>
+        <input type="checkbox" id="expclustertext" checked> Export cluster analysis <i>(as nodes and edges file; for example as gephi import)</i><br>
+        <input type="checkbox" id="expclustervis" checked> Export cluster visualization <i>(as SVG)</i><br>
+        <div id="resultsofexp"></div>    <br>
+        
+        <h2>Note</h2>
+        <textarea id="protokollexport" rows="4" cols="80"></textarea><br><i>(Log entry for the export section.)</i><br>
+    </div>
+
+        
+    </form>
+
+    
+
+    <div id="popup" onclick="function(this){this.style.display.none; this.innerHTML = '';}"></div>
+
+
+    <div class="webfoot">
+    <a href="https://www.uni-trier.de">University Trier</a> / 
+    <a href="https://www.uni-trier.de/universitaet/fachbereiche-faecher/fachbereich-iii/faecher/geschichte/profil/fachgebiete/alte-geschichte-1/team">Ancient History Trier</a> / 
+    <a href="http://www.eaqua.net/~khk/eaquaportal/">eAQUA digital resources</a> /
+    <a href="https://www.volkswagenstiftung.de/en"><img src="vwstlogo.svg"/ style="width:10%; margin-right:10%;"></a>
+    </div>
+
+
+    <script>
+        //global error handler to stop load sign and show error message
+        window.onerror = function(msg, url, linenumber) {
+            alert('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
+            showERRORinload('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
+            return true;
+        }
+        /*get the actual configuration and overwrite the default values of the gui*/
+        getlastselection( ); //setting the remembered config values
+        setInterval( function(){ sisa(); }, durationbetweenautosave);    //autosave
+        buildaname( ); //show remembered name
+        //stop word list creation
+        
+        //rerun or run or series
+        if( parseInt(localStorage.getItem( "rerundo")) == 1 ){
+            localStorage.setItem( "rerundo", 0);
+            rerun();
+            
+        } else if(parseInt(localStorage.getItem( "rundo")) == 1){
+            localStorage.setItem( "rundo", 0);
+            run();
+        }
+        
+    </script>
+	</body>
+	
+</html>
