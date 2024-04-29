@@ -4,8 +4,8 @@
         <meta charset="utf-8" />
         <title>stylo-ah-online</title>
 
-        <meta name="description" content="text norm decomposition counting meassuring and clustering tool" />
-        <meta name="author" content="prof. charlotte schubert, khk" />
+        <meta name="description" content="stylo-ah-online is a tool for comparative text analysis. It can be used to determine style. It implements many well-known methods of text analysis in a new way and is available in the browser. It offers many possibilities for text normalization, text decomposition, a large selection of distance measures and some clustering methods." />
+        <meta name="author" content="Prof. Dr. Charlotte Schubert, Hannes Kahl, Jens Wittig, Sylvia Kurowsky" />
 
         <!--script type="text/javascript" src="../js/abkAW.js"></script-->
         <!--script type="text/javascript" src="../js/numeric.js"></script--> 
@@ -50,16 +50,19 @@
             #floatmenu{
                 
                 background: #007AC3;
+                border-radius: 0px 0px 0px 10px;
                 display:none;
                 position: absolute;
                 margin-left:20%;
-                font-size:80%;
+                font-size:110%;
                 padding:5px;
                 width:50%;
+                
             }
             #floatmenu a{
-                color:black;
+                color:white;
                 margin-right:10px;
+                text-decoration:none;
             }
         </style>
 
@@ -93,11 +96,12 @@
     - First do the configuration, than open the files (multiple selection), that will run the analysis. <br>
     - Open up the web console, to get the messages, about the progress or errors of the analysis process.<br>
     
-    - <a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch">Manual and further information</a><br>
+    - <a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch">Manual and further information.</a><br>
     - <a href="mailto:kahlh@uni-trier.de">Email to the admin.</a><br>
+    - <a href="https://github.com/ecomp-shONgit/stylo-ah-online">Browse the code on github.</a><br>
     
     <br><br>
-    Version: Beta 05.2024-03-05 </div>
+    Version: Beta 05.2024-04-25 </div>
 
     
         
@@ -162,7 +166,7 @@
     <div class="partin">
         <span class="sidebyside">
             <h1 style="color:red; background:#7CCAAE;"><a id="inputmen">Input / Replication</a></h1>
-                <input type="file" multiple onchange="run(this);"/> <i>(Just choose 
+                <input type="file" id="nuimpbu" multiple onchange="run(this);"/> <i>(Just choose 
                     the CORPUS FILES, than the selection below will be applyed (start analysis). 
                     Data in the data base will be overwritten.)</i><br>
                 
@@ -183,6 +187,7 @@
                 <textarea id="protokollinput" rows="4" cols="80"></textarea><br><i>(Log entry for the input section.)</i><br>
         </span>
         <span class="sidebyside" id="resultsofinput"><div class="zwischenergdisp" id="zwischenergshow1"></div></span>
+        
     </div>
 
 
@@ -289,23 +294,24 @@
                     <option value="1">Word level (groups of words)</option>
                     <option value="2">Sign level of words</option>
                     <option value="3">Signs of whole string (inclu. space characters)</option>
-                    <option value="4">Gap-ngram of whole string</option>
+                    <option value="4">Gap-ngram word level</option>
                     <!--option value="5">Erasegram of whole string</option-->
                     <option value="6">Pseudo-syllables (other config of decomposition ignored)</option>
                     <option value="7">Head-body-Coda I</option>
                     <option value="8">All partitions (Head-body-Coda II)</option>
                     <!--option value="9">FBN</option-->
+                    <option value="10">Byte pair encoding (BPE)</option>
             </select> Gram-level<br>
 
             
             <input type="text" id="nofgram" value="1"> N <i>(gram-size, set to one means for example word statistics)</i><br>
-            <input type="text" id="gramgapsize" value="1"> M <i>(gap-size, for gap n-gram</i><br>
+            <input type="text" id="gramgapsize" value="1"> M <i>(gap-size, for gap n-gram)</i><br>
             <select id="padsel">
                      <option value="0">No</option>
                      <option value="1">Yes</option>
             </select> Padding <i>(used for sign level of words)</i><br>
             <input type="checkbox" id="gramsteptogramsize" name="gramsteptogramsize"/> <i>(check this to set the increment of the gram building to gram size)</i><br>
-
+            <input type="text" id="vocabularsizebpe" value=""> Size of vocabulary <i>(used for the byte pair encoding tokenizer)</i><br>
         
         <h2>Note</h2>
         <textarea id="protokolltoken" rows="4" cols="80"></textarea><br><i>(Log entry for the token section.)</i><br>
@@ -334,12 +340,14 @@
         <input type="text" id="mfwculllistcuttoff" value="0" style="display:none"><!--span> Maximum lenght of word (token) frequency list; will limit corpus frequnecy list.</span><br-->
         <input type="text" id="cullingmin" value="0"> Min value <i>(per cent of presents of a token in all texts)</i><br>
         <input type="text" id="cullingmax" value="0"> Max value <i>(per cent)</i><br>
+        <input type="text" id="mfwcullinc" value="1" style="display:none;">
         
         <h2>Text length normalization</h2>
         <input type="checkbox" id="textlennorm"> Compare fractions of texts <i>(smallest text gives the length; none other method is applied, only on first run on corpus).</i> <br>
         <input type="text" id="textlennormsize"> Fraction length <i>(if a number is provided, than every text will be split into frations of that size on sign level).</i><br>
         <!--h2>Stepped series (per corpus)</h2-->
-        <input type="text" id="mfwcullinc" value="1" style="display:none;"> <!--span>Series step increment</span> <i>(if you have 500 word (token) frequencies and increment set to 100, you compute with 100 mfw (most frequnet words), 200, 300, 400 and 500 mfw)</i><br-->
+         <!--span>Series step increment</span> <i>(if you have 500 word (token) frequencies and increment set to 100, you compute with 100 mfw (most frequnet words), 200, 300, 400 and 500 mfw)</i><br-->
+        <input type="text" id="textlennormpartscount"> Count of fractions <i>(if a number is provided, than only that number or less text fractions will be used).</i><br>
 
         
         <h2>Note</h2>
