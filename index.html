@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <title>stylo-ah-online</title>
 
-        <meta name="description" content="stylo-ah-online is a tool for comparative text analysis. It can be used to determine style. It implements many well-known methods of text analysis in a new way and is available in the browser. It offers many possibilities for text normalization, text decomposition, a large selection of distance measures and some clustering methods." />
+        <meta name="description" content="stylo-ah-online is a tool for comparative text analysis. It can be used to determine text style. It implements many well-known methods of text analysis in a new way and is available in the browser. It offers many possibilities for text normalization, text decomposition / tokenisation, counting token, a large selection of distance measures and some clustering methods." />
         <meta name="author" content="Prof. Dr. Charlotte Schubert, Hannes Kahl, Jens Wittig, Sylvia Kurowsky" />
 
         <!--script type="text/javascript" src="../js/abkAW.js"></script-->
@@ -14,7 +14,8 @@
         <script type="text/javascript" src="../js/strdist.js"></script> 
         <script type="text/javascript" src="../js/textdecomp.js"></script>
         <script type="text/javascript" src="../js/vecspmeasures.js"></script>   
-        <script type="text/javascript" src="../js/clust.js"></script>    
+        <script type="text/javascript" src="../js/clust.js"></script>  
+        <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script> 
 	    <script type="text/javascript" src="interfff.js"></script> 
         
         
@@ -22,6 +23,7 @@
             body{ font-family:"Segoe UI","Arial"; }
             .webhead{padding: 10px; margin:20px;}
             .webdesc{padding: 20px; background: #007AC3;font-style:italic; margin:20px; border-radius: 0px 0px 0px 30px}
+            .webdesc a{ color:black;}
             .partin{font-sytle:regular; border-bottom: 5px solid #7CCAAE;margin-left:20px;margin-right:20px;vertical-align:top;}
             h1{ font-weight: bold; color:#222; text-align: left; font-size:140%;}
             h2{ font-weight: bold; color:#007AC3; text-align: left; font-size:120%; }
@@ -30,6 +32,7 @@
             i{color:gray;}
             input{margin:2px;}
             select{margin:2px;}
+            svg{border:1px solid gray;}
             #popup{display:none; z-index:2; position:absolute;}
             .sidebyside{display: inline-block;width: 49%;vertical-align:top;}
             .zwischenergdisp{padding:5px; overflow:auto; max-height:500px; border:1px solid #7CCAAE;}
@@ -80,6 +83,7 @@
         <a href="#measuremen">Measure</a>
         <a href="#clusteringmen">Clustering</a>
         <a href="#exportmen">Export</a>
+        <input type="button" value="Re-run" onclick="rerun();">
     </div>
     
     <div class="webhead">
@@ -101,7 +105,7 @@
     - <a href="https://github.com/ecomp-shONgit/stylo-ah-online">Browse the code on github.</a><br>
     
     <br><br>
-    Version: Beta 05.2024-04-25 </div>
+    Version: Beta 05.2024-07-23 </div>
 
     
         
@@ -137,9 +141,13 @@
 
     <div class="partin">
         <h1><a id="configurationmen">Configuration</a></h1>
+            <i>(Please check <a href="https://github.com/ecomp-shONgit/stylo-ah-online/tree/main/config-templates">
+               github</a> to find some template config files.)
+            </i>
+            
             <h2>Config for text analysis</h2>
             <input type="button" id="sisaconf" value="Save conf file" onclick="downelmarray = []; themanydownloadfiles=1; writeconfigfile();"> <i>(This will 
-                run the analysis again, if you made changes to the settings below.)</i><br>
+                save the configuration of the whole tool to file.)</i><br>
                 
             <input type="file" onchange="readinconfigurationfile(this);"/> <i>(Choose a existing 
                 stylo-online configuration file to set the configuration for stylo-online.)</i><br> 
@@ -151,14 +159,13 @@
             
             
             <h2>Config for stylo-ah-online display</h2>
-            <input type="checkbox" id="styloahdisplengthdisp" name="styloahdisplengthdisp" checked /> Display size of 
-                results <i>(Checked: Just show a sample of the results (1000 token/signs). 
-                Not checked: Results will be shown in full length.)</i> <br>
+            <input type="checkbox" id="styloahdisplengthdisp" name="styloahdisplengthdisp" checked /> Reduce size of intermediate result for display <i>(Checked: Just show a sample of the results (1000 token/signs). Not checked: Intermediate results will be shown in full length.)</i> <br>
             
             <h2>Delete</h2>
             <input type="button" id="delconfid" value="Delete configuration" onclick="delconfigofall();"> <i>(This will delete the configuration.)</i><br>
             <input type="button" id="deldbid" value="Delete data base" onclick="deleteDB();"> <i>(This will delete the stored files and the results of the analysis.)</i><br>
             <input type="button" id="delaallid" value="Reset stylo-ah-online" onclick="resetall();"> <i>(This will reset stylo ah online to start an new analysis.)</i><br>
+            <input type="button" value="Refresh page" onclick="location.reload( true )"> <i>(Load new version of software omit browser cache.)</i><br>
     </div>
 
 
@@ -198,6 +205,7 @@
             <i>(Please check <a href="http://ecomparatio.net/~khk/NORM-DECOMP-DIST/textnorm.html">
                http://ecomparatio.net/~khk/NORM-DECOMP-DIST/textnorm.html</a> to see some examples of how the selection would work.)
             </i>
+            
             <!--h2>Unicode normalization</h2-->
             <select id="normalformsel" style="display:none;">
                 <option value="0" selected="true">Unicode NFKD (default)</option>
@@ -216,11 +224,12 @@
             <h2>Sign equalization</h2>
             <input type="checkbox" id="disambidiak"> Disambiguate diacritica <br>
             <input type="checkbox" id="disambidashes"> Disambiguate dashes <br>
-            <input type="checkbox" id="uv"> Text output latin u-v <i>(repaces all u with v)</i></br>
-            <input type="checkbox" id="ji"> Text output latin j-i <i>(repaces all j with i)</i></br>
+            <input type="checkbox" id="uv"> Text output latin u-v <i>(replace all v with u)</i></br>
+            <input type="checkbox" id="ji"> Text output latin j-i <i>(replace all j with i)</i></br>
             <input type="checkbox" id="iota"> Iota sub to ad <i>(takes greek utf8 string and repleces iota subscriptum with iota ad scriptum)</i></br>
             <input type="checkbox" id="sigma"> Text output tailing sigma uniform <i>(equalize tailing sigma)</i></br>
-            <input type="checkbox" id="deldiak"> Text output without diacritics <i>(replaces diacritics)</i></br>
+            <input type="checkbox" id="deldiak"> Text output without diacritics <i>(replace diacritics)</i></br>
+            <input type="checkbox" id="deldiakmodern"> Without modern diacritics <i>(replace diacritics of modern languages; performance issues!)</i></br>
             <input type="checkbox" id="unkown"> Text output without some signs <i>(delete some to the programmer unknown signs: †, *, ⋖, #, §, ⁑)</i></br>
             <input type="checkbox" id="ligatu"> Text output without ligature <i>(takes a string, return string with ligatures turned to single letters)</i></br>
             <input type="checkbox" id="eqcase"> Text output equal case <i>(input a string and get it back with all small case letters)</i></br>
@@ -291,16 +300,16 @@
             <!--input type="checkbox" id="ngram"> Use N-Gram <i>(check this to enable ngram decomposition and use the configuration below)</i><br-->
             <select id="gramsel">
                     <option value="0">...</option>
-                    <option value="1">Word level (groups of words)</option>
-                    <option value="2">Sign level of words</option>
-                    <option value="3">Signs of whole string (inclu. space characters)</option>
+                    <option value="1">Word level n-gram</option>
+                    <option value="2">character based n-gram of wordstrings</option>
+                    <option value="3">character based n-gram</option>
                     <option value="4">Gap-ngram word level</option>
                     <!--option value="5">Erasegram of whole string</option-->
                     <option value="6">Pseudo-syllables (other config of decomposition ignored)</option>
                     <option value="7">Head-body-Coda I</option>
                     <option value="8">All partitions (Head-body-Coda II)</option>
                     <!--option value="9">FBN</option-->
-                    <option value="10">Byte pair encoding (BPE)</option>
+                    <option value="10">(not byte) pair encoding (nBPE)</option>
             </select> Gram-level<br>
 
             
@@ -311,7 +320,7 @@
                      <option value="1">Yes</option>
             </select> Padding <i>(used for sign level of words)</i><br>
             <input type="checkbox" id="gramsteptogramsize" name="gramsteptogramsize"/> <i>(check this to set the increment of the gram building to gram size)</i><br>
-            <input type="text" id="vocabularsizebpe" value=""> Size of vocabulary <i>(used for the byte pair encoding tokenizer)</i><br>
+            <input type="text" id="vocabularsizebpe" value=""> Size of vocabulary <i>(used for the (not byte) pair encoding tokenizer)</i><br>
         
         <h2>Note</h2>
         <textarea id="protokolltoken" rows="4" cols="80"></textarea><br><i>(Log entry for the token section.)</i><br>
@@ -329,6 +338,7 @@
                      <option value="3">TF-IDF</option>
                      <option value="4">TF-text/TF-corpus</option>
                      <option value="5">TF</option>
+                     <option value="6">z-Scores</option>
         </select><i>(select the counting methode)</i></br>
         
         <h2>Most frequent token / words </h2>
@@ -366,7 +376,7 @@
             <option value="euclideanM" selected="selected">euclidean</option>
             <option value="chebyshevM">chebyshev</option>
             <option value="minkowskiM">minkowski</option>
-            <option value="manhattenM">manhatten</option>
+            <option value="manhattanM">manhattan</option>
             <option value="canberraM">canberra</option>
             <option value="soerensenM">soerensen</option>
             <option value="gowerM">gower</option>
@@ -428,6 +438,7 @@
         <span class="sidebyside">
         <h1><a id="clusteringmen">CLUSTERING</a></h1>
         <select id="clustsel">
+            <option value="9">network of hierarchical CA</option>
             <option value="7">hierarchical cluster analysis</option>
             <option value="0">strict hierarchical cluster analysis</option>
             <!--option value="1">MDS (eigenvectors)</option-->
@@ -451,7 +462,7 @@
         <div id="clustaddconf">
 
         </div>
-
+        <div id="config"></div>
         <br>
         <h2>Note</h2>
         <textarea id="protokollclust" rows="4" cols="80"></textarea><br><i>(Log entry for the cluster section.)</i><br>
@@ -469,13 +480,18 @@
         <input type="checkbox" id="expraw"  checked> Export raw text input <i>(as text file, renamed)</i><br>
         <input type="checkbox" id="expnormed" checked> Export normed string <i>(as text file)</i><br>
         <input type="checkbox" id="expdecomp" checked> Export decomposition <i>(as text file)</i><br>
-        <input type="checkbox" id="expcounted" checked> Export frequency of token <i>(as CSV file)</i><br>
+        <input type="checkbox" id="expcounted" checked> Export frequency of token <i>(Table of frequencies, as CSV file)</i><br>
         
         <h2>Single file result export</h2>
         
         <input type="checkbox" id="expdistmatrix" checked> Export distance matrix <i>(as text file; usable as gephi import)</i><br>
         <input type="checkbox" id="expclustertext" checked> Export cluster analysis <i>(as nodes and edges file; for example as gephi import)</i><br>
-        <input type="checkbox" id="expclustervis" checked> Export cluster visualization <i>(as SVG)</i><br>
+        <input type="checkbox" id="expclustervis" checked> Export cluster visualization <i>(as SVG / PNG)</i><br>
+        
+        <h2>Raster image export</h2>
+        <input type="button" value="Download Graph-Visualization" onclick="downpngofgraph()"><br>
+        <input type="checkbox" id="expclustervispng"> Use PNG <i>(Use PNG image format instead of SVG.)</i><br>
+        
         <div id="resultsofexp"></div>    <br>
         
         <h2>Note</h2>
@@ -500,11 +516,11 @@
 
     <script>
         //global error handler to stop load sign and show error message
-        window.onerror = function(msg, url, linenumber) {
+        /*window.onerror = function(msg, url, linenumber) {
             alert('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
             showERRORinload('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
             return true;
-        }
+        }*/
         /*get the actual configuration and overwrite the default values of the gui*/
         getlastselection( ); //setting the remembered config values
         setInterval( function(){ sisa(); }, durationbetweenautosave);    //autosave

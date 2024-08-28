@@ -42,7 +42,7 @@ let lastchangeokk = 7;//  1:norm, 2:decomp, 3:counting, 4:measure, 5:clustering,
 const defaultstops = "%N%;;†;;';;~;;⋖;;A;;ex.;;fr.;;p.;;v.;;α;;Α;;ἃ;;αʹ;;ἀεὶ;;αἱ;;ἀλλ';;Ἀλλ';;ἀλλὰ;;Ἀλλὰ;;ἄλλα;;ἀλλήλων;;ἄλλο;;ἄλλοι;;ἄλλοις;;ἄλλος;;ἄλλων;;ἄλλως;;ἅμα;;ἄν;;ἂν;;ἄνευ;;ἀντὶ;;ἄνω;;ἀπ';;ἅπαντα;;ἁπάντων;;ἁπλῶς;;ἀπό;;ἀπὸ;;ἄρα;;αὖ;;αὖθις;;αὐτὰ;;αὐτὴ;;αὐτῇ;;αὕτη;;αὐτὴν;;αὐτῆς;;αὐτὸ;;αὐτοὶ;;αὐτοῖς;;αὐτόν;;αὐτὸν;;αὐτός;;αὐτὸς;;αὐτοῦ;;αὐτούς;;αὐτοὺς;;αὐτῷ;;αὐτῶν;;ἀϕ';;Β;;βʹ;;Γ;;γʹ;;γάρ;;γὰρ;;γε;;γέγονεν;;γενέσθαι;;γίνεται;;γίνονται;;δʹ;;δ';;δαί;;δαίς;;δέ;;δὲ;;δεῖ;;δεύτερον;;δή;;δὴ;;δηλοῖ;;δῆλον;;δι';;διά;;διὰ;;Διὰ;;διὸ;;διότι;;δύναται;;δύο;;ε;;ἐάν;;ἐὰν;;ἑαυτὸν;;ἑαυτοῦ;;ἑαυτῷ;;ἑαυτῶν;;ἐγώ;;ἐγὼ;;εἰ;;Εἰ;;εἴ;;εἴη;;εἰμί;;εἶναι;;εἴπερ;;εἰς;;εἷς;;εἰσι;;εἰσὶ;;εἰσιν;;εἶτα;;εἴτε;;ἐκ;;ἕκαστον;;ἐκεῖ;;ἐκεῖνο;;ἐκεῖνον;;ἐκεῖνος;;ἐκείνου;;ἐκείνων;;ἐμοὶ;;εμον;;ἐμός;;εμου;;ἐμοῦ;;ἐν;;Ἐν;;ἓν;;ἕνα;;ἔνθα;;ἑνὸς;;ἐνταῦθα;;ἐντεῦθεν;;ἐξ;;ἔξω;;ἐπ';;ἐπεὶ;;ἐπειδὴ;;ἔπειτα;;ἐπί;;ἐπὶ;;ἐς;;ἔσται;;ἐστι;;ἐστὶ;;ἔστι;;ἐστίν;;ἐστὶν;;ἔστιν;;ἕτερον;;ἔτη;;ἔτι;;εὖ;;εὐθὺς;;ἐϕ';;ἔχει;;ἔχειν;;ἔχον;;ἔχοντα;;ἔχοντες;;ἔχων;;ἕως;;ἢ;;ᾖ;;ἡ;;Ἡ;;ᾗ;;ἤγουν;;ἤδη;;ἡμᾶς;;ἡμεῖς;;ἡμῖν;;ἡμῶν;;ην;;ἦν;;ἣν;;ης;;ἧς;;ἦσαν;;ἤτοι;;ι;;ἴδιον;;ἵνα;;καθ';;καθάπερ;;καί;;καὶ;;Καὶ;;καίτοι;;κἂν;;κατ';;κατά;;κατὰ;;κάτω;;λοιπὸν;;μάλιστα;;μᾶλλον;;με;;μέγα;;μεθ';;μέν;;μὲν;;μέντοι;;μετ';;μετά;;μετὰ;;μεταξὺ;;μέχρι;;μή;;μὴ;;Μὴ;;μηδὲ;;μηδὲν;;μὴν;;μήτε;;μίαν;;μοι;;μόνον;;μου;;ν;;νοῦν;;νῦν;;ὁ;;Ὁ;;ὅ;;ὃ;;ὅδε;;ὅθεν;;οἱ;;Οἱ;;οἳ;;οἶμαι;;οἷον;;οἷς;;ὅλως;;ὁμοίως;;ὁμοῦ;;ὅμως;;ὂν;;ὃν;;ὄντα;;ὄντος;;ὄντων;;ὅπερ;;ὅπως;;ὅς;;ὃς;;ὅσα;;ὅσον;;ὅστις;;ὅταν;;ὅτε;;ὅτι;;Ὅτι;;οὐ;;Οὐ;;οὗ;;οὐδ';;οὐδέ;;οὐδὲ;;οὐδείς;;οὐδεὶς;;οὐδὲν;;οὐκ;;Οὐκ;;οὐκέτι;;οὖν;;οὓς;;οὐσίαν;;οὐσίας;;οὔτε;;οὗτοι;;οὗτος;;οὕτω;;οὕτως;;οὐχ;;οὐχὶ;;πάλιν;;πᾶν;;πάντα;;πάντας;;πάντες;;παντὶ;;παντὸς;;πάντων;;πάντως;;πάνυ;;παρ';;παρά;;παρὰ;;πᾶσα;;πᾶσαν;;πάσης;;πᾶσι;;πᾶσιν;;περί;;περὶ;;Περὶ;;πλέον;;πλῆθος;;πλὴν;;πολλὰ;;πολλάκις;;πολλοὶ;;πολλοὺς;;πολλῷ;;πολλῶν;;πολὺ;;ποτε;;ποτὲ;;που;;πρὶν;;πρὸ;;πρός;;πρὸς;;πρότερον;;πρῶτον;;πῶς;;σε;;σοι;;σός;;σου;;σοῦ;;σύ;;σὺ;;σύν;;σὺν;;τ';;τά;;τὰ;;Τὰ;;ταῖς;;τὰς;;ταῦτα;;Ταῦτα;;ταύτῃ;;ταύτην;;ταύτης;;τε;;τῇ;;τήν;;τὴν;;της;;τῆς;;τῆϲ;;τι;;τί;;Τί;;τινα;;τινὰ;;τινες;;τινος;;τινὸς;;τις;;τίς;;τό;;τὸ;;Τὸ;;τοι;;τοί;;τοιαῦτα;;τοίνυν;;τοιοῦτον;;τοιοῦτος;;τοιούτων;;τοῖς;;τόν;;τὸν;;τόπον;;τοσοῦτον;;τότε;;τοῦ;;τους;;τοὺς;;τοῦτ';;τουτέστι;;τουτέστιν;;τοῦτο;;τούτοις;;τοῦτον;;τούτου;;τούτους;;τούτῳ;;τούτων;;τρεῖς;;τῷ;;τῶν;;ὑμᾶς;;ὑμῖν;;ὑμός;;ὑμῶν;;ὑπ';;ὑπέρ;;ὑπὲρ;;ὑπό;;ὑπὸ;;ὕστερον;;ϕησὶν;;χρὴ;;χωρὶς;;ὦ;;ὢν;;ὧν;;ὡσ;;ὡς;;ὥς;;ὥσπερ;;ὥστε;;CRITICAL;;ABBREVIATIONS;;abiud;;add;;adesp;;al;;ant;;antec;;anteced;;antecedent;;anth;;app;;arg;;argum;;argument;;art;;artic;;ca;;cap;;capit;;capitul;;cert;;cet;;cett;;cf;;ci;;cit;;cj;;cl;;cod;;codd;;col;;coll;;coni;;conj;;cont;;corp;;corr;;damn;;def;;del;;dett;;dist;;distin;;distinc;;distinct;;dub;;ead;;eadem;;ed;;edd;;eiusd;;ejusd;;em;;eod;;epist;;etc;;exp;;fg;;fgs;;fin;;fort;;fr;;frg;;gl;;gr;;ib;;ibid;;il;;ill;;indic;;inf;;infr;;init;;inscr;;interl;;lect;;lit;;litt;;ll;;loc;;marg;;mg;;ms;;mss;;mut;;od;;om;;pag;;pal;;pap;;papp;;penul;;penult;;pler;;plur;;pot;;pp;;pr;;praec;;praeced;;prob;;prolog;;prooem;;prop;;propos;;qq;;qu;;quaest;;quaestiunc;;quaestiuncul;;ras;;recc;;rell;;respons;;sc;;schol;;scholl;;scil;;secl;;seq;;seqq;;sim;;solut;;sq;;sqq;;ss;;subscr;;sup;;suppl;;susp;;tent;;text;;trai;;transp;;transt;;trib;;ud;;uers;;uersic;;uett;;uid;;uit;;ult;;ultim;;uu;;uulg;;vd;;vers;;versic;;vett;;vid;;vit;;vulg;;vv;;γρ;;agr;;ap;;cn;;mam;;oct;;opet;;pro;;ser;;sert;;sex;;st;;ti;;uol;;uop;;vol;;vop;;CONJUNCTIONS;;ac;;an;;antequam;;at;;atque;;aut;;autem;;donec;;dum;;enim;;ergo;;et;;etenim;;etiam;;etiamsi;;etsi;;igitur;;itaque;;licet;;nam;;namque;;ne;;nec;;necque;;neque;;ni;;nisi;;postquam;;proinde;;quamobrem;;quamquam;;quanquam;;quare;;que;;quia;;quomodo;;quoniam;;quoque;;sed;;seu;;si;;sin;;siue;;sive;;tamen;;tametsi;;ue;;uel;;ut;;utcunque;;uterque;;uti;;utlibet;;utne;;utque;;utraque;;utrum;;utrumque;;utue;;utve;;ve;;vel;;PREPOSITIONS;;ab;;abs;;ad;;aduersum;;aduersus;;adversum;;adversus;;ante;;apud;;circa;;circum;;contra;;coram;;cum;;de;;erga;;ex;;extra;;in;;infra;;inter;;intra;;ob;;penes;;per;;post;;prae;;praeter;;prope;;propter;;secundum;;sine;;sub;;subter;;super;;supra;;tenus;;trans;;ultra;;adeo;;adhuc;;aliquando;;aliter;;antea;;certe;;ceterum;;cur;;dein;;deinde;;demum;;denique;;diu;;ecce;;equidem;;fere;;forsitan;;fortasse;;forte;;frustra;;hactenus;;haud;;hinc;;hodie;;huc;;iam;;iamque;;ibi;;ideo;;illic;;immo;;inde;;interdum;;interim;;ita;;item;;iterum;;iuxta;;jam;;jamque;;juxta;;magis;;minime;;minus;;minusne;;minusque;;minusue;;minusve;;modo;;mox;;nihilo;;nimirum;;nimis;;non;;nondum;;nonne;;num;;numquam;;nunc;;olim;;omnino;;paene;;pariter;;plane;;plerumque;;plus;;plusne;;plusque;;plusue;;plusve;;postea;;potius;;praesertim;;praeterea;;primum;;prius;;priusquam;;procul;;profecto;;protinus;;qualibet;;quam;;quando;;quasi;;quatenus;;quemadmodum;;quidem;;quin;;quippe;;quodam;;quodammodo;;quolibet;;quondam;;quot;;quotiens;;repente;;rursum;;rursus;;saepe;;sane;;sat;;satis;;scilicet;;semel;;semper;;sic;;sicut;;sicuti;;simul;;solum;;sponte;;statim;;tam;;tamquam;;tandem;;tantum;;tantummodo;;tot;;totiens;;tum;;tunc;;ubi;;uelut;;uero;;uidelicet;;uix;;ultro;;umquam;;unde;;undique;;usque;;utique;;velut;;vero;;videlicet;;vix;;ego;;egon;;egone;;egoque;;me;;mecum;;mecumque;;mecumst;;med;;medem;;mei;;mein;;meique;;meme;;memet;;men;;mene;;meque;;mest;;mi;;mihi;;mihin;;mihine;;mihique;;mihist;;min;;mine;;mist;;meus;;mea;;meae;;meaeque;;meai;;meam;;meamne;;meamque;;mean;;meane;;meaque;;mearum;;mearumque;;meas;;measque;;meast;;mee;;meis;;meisque;;meo;;meon;;meone;;meoque;;meost;;meum;;meumque;;meumst;;meumve;;meusque;;meust;;tu;;te;;tecum;;tecumque;;ted;;temet;;ten;;tenve;;tenveque;;tenvis;;teque;;test;;teve;;tibi;;tibimet;;tibin;;tibique;;tibist;;tui;;tuin;;tuine;;tuique;;tun;;tune;;tuque;;tute;;tutemet;;tuus;;tua;;tuae;;tuaen;;tuaeque;;tuaest;;tuaique;;tuam;;tuamne;;tuamque;;tuamst;;tuamve;;tuan;;tuane;;tuaque;;tuarum;;tuarumque;;tuas;;tuasne;;tuasque;;tuast;;tuasue;;tue;;tuest;;tuis;;tuisne;;tuisque;;tuo;;tuom;;tuomque;;tuomst;;tuon;;tuoque;;tuorum;;tuorumque;;tuos;;tuosne;;tuosque;;tuost;;tuosve;;tuum;;tuumne;;tuumque;;tuusque;;tuusue;;hic;;hac;;hacne;;hae;;haec;;haecine;;haecinest;;haecne;;haeque;;haeve;;han;;hanc;;hancine;;hancne;;hancque;;hann;;harum;;harumque;;has;;hasce;;hascine;;hasne;;hasque;;hi;;hicine;;hicinest;;hicne;;hin;;hine;;hinn;;hique;;his;;hisce;;hisdem;;hisne;;hisque;;hoc;;hocin;;hocine;;hocinest;;hocne;;hocque;;hon;;horum;;horumque;;horunc;;hos;;hosce;;hosne;;hosque;;host;;huic;;huius;;huiusce;;huiusne;;huiusque;;huiusve;;hujus;;hujusce;;hujusne;;hujusque;;hujusve;;hum;;hunc;;huncne;;ille;;illa;;illae;;illaeque;;illam;;illamne;;illan;;illane;;illaque;;illarum;;illas;;illasque;;illast;;illave;;illene;;illest;;illi;;illique;;illis;;illisque;;illist;;illisue;;illiue;;illius;;illiusque;;illiust;;illo;;illoque;;illorum;;illos;;illosque;;illost;;illud;;illudne;;illudque;;illum;;illumne;;illumque;;illumst;;illumve;;olla;;ollae;;ollam;;ollarum;;ollas;;olle;;olli;;ollique;;ollis;;ollisque;;ollius;;ollo;;ollos;;ollosque;;iste;;ista;;istae;;istaec;;istam;;istamque;;istanc;;istane;;istaque;;istarum;;istas;;istast;;istest;;isti;;istimet;;istique;;istis;;istisne;;istisve;;istius;;isto;;iston;;istorum;;istos;;istuc;;istud;;istum;;istumne;;istunc;;ipse;;ipsa;;ipsae;;ipsaeque;;ipsam;;ipsamque;;ipsane;;ipsaque;;ipsarum;;ipsarumque;;ipsas;;ipsasque;;ipsast;;ipsemet;;ipsene;;ipseque;;ipsest;;ipsi;;ipsimet;;ipsine;;ipsique;;ipsis;;ipsisne;;ipsisque;;ipsist;;ipsius;;ipsiusque;;ipso;;ipson;;ipsoque;;ipsorum;;ipsorumque;;ipsos;;ipsosne;;ipsosque;;ipsost;;ipsum;;ipsumne;;ipsumque;;ipsus;;ipsusne;;ipsusque;;ipsust;;is;;ea;;eae;;eaeque;;eam;;eamdem;;eamne;;eamque;;eamue;;ean;;eane;;eanest;;eaque;;earum;;earumne;;earumque;;earumue;;earumve;;eas;;easque;;east;;easue;;eaue;;eave;;ei;;ein;;eine;;eique;;eis;;eisne;;eisque;;eiue;;eius;;eiusque;;eiust;;eiusue;;eive;;ejus;;ejusque;;ejust;;ejusue;;eo;;eoque;;eorum;;eorumdem;;eorumne;;eorumque;;eorumue;;eorumve;;eos;;eosne;;eosque;;eost;;eosue;;eoue;;eum;;eumdem;;eumne;;eumque;;eumue;;eumve;;id;;idne;;idnest;;idque;;idue;;iidem;;iidemque;;iique;;iis;;iisne;;iisque;;iisue;;isne;;isque;;idem;;eademne;;eademque;;eademst;;eademve;;eaedem;;eaedemque;;eandem;;eandemque;;earumdem;;easdem;;easdemne;;easdemque;;eidem;;eidemque;;eisdem;;eisdemque;;eiusdem;;eiusdemque;;ejusdem;;ejusdemque;;eodem;;eodemque;;eorundem;;eosdem;;eosdemne;;eosdemque;;eundem;;eundemne;;eundemque;;idemne;;idemque;;idemst;;iisdem;;iisdemque;;isdem;;isdemne;;isdemque;;suus;;sua;;suae;;suaeque;;suai;;suam;;suamne;;suamque;;suane;;suaque;;suarum;;suarumque;;suas;;suasque;;suaue;;sue;;sui;;suique;;suis;;suisne;;suisque;;suist;;suo;;suom;;suone;;suoque;;suorum;;suorumque;;suorumue;;suos;;suosque;;suum;;suumque;;suusque;;se;;secum;;secumque;;secumue;;secumve;;semet;;sen;;sese;;sest;;sibi;;sibimet;;sibine;;sibique;;suimet;;nos;;nobis;;nobiscum;;nobiscumque;;nobismet;;nobisne;;nobisque;;nosmet;;nosne;;nosque;;nost;;nostri;;nostrique;;nostrive;;nostrum;;nostrumne;;nostrumque;;noster;;nosterque;;nostra;;nostrae;;nostraeque;;nostrai;;nostram;;nostramne;;nostramque;;nostrane;;nostraque;;nostrarum;;nostrarumque;;nostras;;nostrasne;;nostrasque;;nostrast;;nostris;;nostrisque;;nostrisve;;nostro;;nostrone;;nostroque;;nostrorum;;nostrorumque;;nostrorumst;;nostros;;nostrosque;;nostrost;;vos;;uestri;;uestrique;;uobis;;uobiscum;;uobismet;;uobisne;;uobisque;;uon;;uos;;uosmet;;uosne;;uosque;;uostrum;;uostrumque;;uostrumst;;vestri;;vestrique;;vobis;;vobiscum;;vobismet;;vobisne;;vobisque;;von;;vosmet;;vosne;;vosque;;vostrum;;vostrumque;;vostrumst;;vester;;uester;;uesterque;;uestra;;uestrae;;uestraene;;uestraeque;;uestram;;uestramne;;uestramque;;uestrane;;uestraque;;uestrarum;;uestras;;uestrasque;;uestris;;uestrisne;;uestrisque;;uestrius;;uestro;;uestrone;;uestroque;;uestrorum;;uestrorumque;;uestros;;uestrosque;;uestrum;;uestrumque;;uestrumst;;uoster;;uostra;;uostrae;;uostraeque;;uostram;;uostraque;;uostrarum;;uostras;;uostrast;;uostri;;uostris;;uostrist;;uostro;;uostrorum;;uostros;;uostrosque;;uostrost;;vesterque;;vestra;;vestrae;;vestraene;;vestraeque;;vestram;;vestramne;;vestramque;;vestrane;;vestraque;;vestrarum;;vestras;;vestrasque;;vestris;;vestrisne;;vestrisque;;vestrius;;vestro;;vestrone;;vestroque;;vestrorum;;vestrorumque;;vestros;;vestrosque;;vestrum;;vestrumque;;vestrumst;;voster;;vostra;;vostrae;;vostraeque;;vostram;;vostraque;;vostrarum;;vostras;;vostrast;;vostri;;vostris;;vostrist;;vostro;;vostrorum;;vostros;;vostrosque;;vostrost;;qui;;cui;;cuilibet;;cuine;;cuipiam;;cuiue;;cuius;;cuiuslibet;;cuiuspiam;;cuiust;;cuiusue;;cuiusve;;cuive;;cujus;;cujuslibet;;cujuspiam;;cujust;;cujusue;;cujusve;;qua;;quae;;quaedem;;quaelibet;;quaen;;quaene;;quaepiam;;quaepiamst;;quaestuis;;quaestuist;;quaeue;;quaeve;;quamne;;quampiam;;quamue;;quamve;;quan;;quapiam;;quarum;;quarumlibet;;quas;;quaslibet;;quast;;quasue;;quasve;;quaue;;quave;;quei;;quein;;queique;;quem;;quemlibet;;quemne;;quempiam;;quemue;;quemve;;quibus;;quibuscum;;quibuslibet;;quibusue;;quibusve;;quicum;;quicumuis;;quicumvis;;quilibet;;quiue;;quive;;quod;;quodlibet;;quodne;;quodpiam;;quodue;;quodve;;quoi;;quoicumque;;quoin;;quoique;;quoiuis;;quoivis;;quon;;quorum;;quorumlibet;;quorumst;;quos;;quoslibet;;quosne;;quospiam;;quost;;quosue;;quosve;;quum;;quis;;quid;;quidlibet;;quidne;;quidni;;quidpiam;;quidue;;quidve;;quiscumque;;quisue;;quisve;;quo;;quone;;quoue;;quove;;quisquam;;cuiquam;;cuiquamst;;cuiusquam;;cujusquam;;quamquamst;;quaquam;;quaquamst;;quemquam;;quemquamne;;quemquamst;;quicquam;;quicquamne;;quicquamst;;quidquam;;quiquam;;quisquamne;;quisquamst;;quoquam;;quisnam;;cuinam;;cuiusnam;;cujusnam;;quaenam;;quaenamst;;quamnam;;quanam;;quarumnam;;quasnam;;quemnam;;quibusnam;;quidnam;;quidnamst;;quinam;;quodnam;;quosnam;;quisquis;;quaqua;;quemquem;;quicquid;;quidquid;;quiqui;;quiquidem;;quoquo;;quisque;;cuique;;cuiquest;;cuiusque;;cujusque;;quaeque;;quamque;;quaque;;quarumque;;quasque;;quemque;;quibusque;;quicque;;quidque;;quique;;quodque;;quorumque;;quosque;;quicumque;;cuicumque;;cuicunque;;cuiuscumque;;cuiuscunque;;cujuscumque;;cujuscunque;;quacumque;;quacunque;;quaecumque;;quaecunque;;quamcumque;;quamcunque;;quarumcumque;;quascumque;;quascunque;;quemcumque;;quemcunque;;quibuscumque;;quibuscunque;;quicumquest;;quicunque;;quocumque;;quodcumque;;quodcunque;;quorumcumque;;quoscumque;;quoscunque;;quivis;;cuiuis;;cuiusuis;;cuiusvis;;cuivis;;cujusuis;;cujusvis;;quaeuis;;quaevis;;quamuis;;quamvis;;quarumuis;;quarumvis;;quasuis;;quasvis;;quauis;;quavis;;quemuis;;quemvis;;quibusuis;;quibusvis;;quiduis;;quidvis;;quiuis;;quoduis;;quodvis;;quosuis;;quosvis;;quidam;;cuidam;;cuiusdam;;cujusdam;;quadam;;quaedam;;quaedamque;;quaedamst;;quamdam;;quandam;;quandamque;;quarumdam;;quasdam;;quasdamque;;quemdam;;quendam;;quibusdam;;quidamque;;quidamst;;quiddam;;quiddamst;;quoddam;;quorumdam;;quosdam;;quosdamque;;quosdamve;;aliqui;;alicui;;alicuius;;alicujus;;aliqua;;aliquae;;aliqualibet;;aliquam;;aliquan;;aliquane;;aliquarum;;aliquas;;aliquast;;aliquaue;;alique;;aliquem;;aliquemque;;aliquibus;;aliquis;;aliquisne;;aliquisque;;aliquit;;aliquod;;aliquodue;;aliquorum;;aliquos;;aliquid;;aliquidque;;aliquidue;;aliquo;;NOUNS;;res;;re;;rebus;;rebusque;;rei;;reique;;reist;;rem;;remque;;remst;;remve;;reque;;rerum;;rerumne;;rerumque;;resne;;resque;;rest;;resve;;nihil;;nihilne;;nihilque;;nil;;nilne;;nilque;;causa;;nemo;;nemine;;neminem;;neminemne;;nemini;;neminis;;neminisque;;nemon;;nemone;;nemoque;;nemost;;ADJECTIVES;;omnis;;omne;;omnem;;omnemque;;omnene;;omneque;;omnes;;omnesne;;omnesque;;omnest;;omni;;omnia;;omnian;;omniane;;omniaque;;omnibus;;omnibusne;;omnibusque;;omnibust;;omnibusue;;omnin;;omnique;;omnisne;;omnisque;;omnist;;omnium;;omniumque;;omniumst;;nullus;;nulla;;nullae;;nullaene;;nullaeque;;nullam;;nullamne;;nullamque;;nullan;;nullane;;nullaque;;nullarum;;nullas;;nullasne;;nullasque;;nullast;;nullave;;nulli;;nulline;;nullique;;nullis;;nullisne;;nullisque;;nullius;;nulliusque;;nullo;;nullon;;nullone;;nulloque;;nullorum;;nullorumque;;nullos;;nullosne;;nullosque;;nullum;;nullumne;;nullumque;;nullumst;;nullusne;;nullusnest;;nullusque;;nullust;;ullus;;ulla;;ullae;;ullam;;ullamve;;ullane;;ullarum;;ullas;;ullast;;ullave;;ulli;;ulline;;ullis;;ullius;;ullo;;ullorum;;ullos;;ullum;;ullumve;;ullusne;;ullust;;multus;;multa;;multae;;multaeque;;multaeve;;multam;;multamque;;multane;;multaque;;multarum;;multarumque;;multas;;multasque;;multi;;multique;;multis;;multisne;;multisque;;multisve;;multo;;multoque;;multorum;;multorumque;;multos;;multosque;;multost;;multosve;;multum;;multumque;;multumst;;multusque;;plus/plures;;plura;;pluraque;;pluraue;;plurave;;plure;;plures;;pluresne;;pluresque;;pluresue;;pluresve;;pluribus;;pluribusne;;pluribusque;;pluribusue;;pluribusve;;plurima;;plurimae;;plurimaeque;;plurimam;;plurimaque;;plurimarum;;plurimas;;plurimasque;;plurime;;plurimi;;plurimique;;plurimis;;plurimisque;;plurimo;;plurimoque;;plurimorum;;plurimos;;plurimosque;;plurimum;;plurimumque;;plurimumst;;plurimus;;plurimusque;;pluris;;plurisne;;plurisque;;plurisue;;plurium;;pluriumue;;pluriumve;;alius;;alia;;aliae;;aliaeque;;aliaest;;aliaeue;;aliaeve;;aliam;;aliamne;;aliamque;;aliamue;;aliamve;;alian;;aliaque;;aliarum;;aliarumque;;aliarumue;;alias;;aliasque;;aliast;;aliaue;;aliave;;alii;;aliique;;aliis;;aliisne;;aliisque;;aliisue;;aliisve;;aliiue;;alio;;alione;;alioque;;aliorum;;aliorumque;;aliorumue;;aliorumve;;alios;;aliosque;;aliost;;aliosve;;alioue;;aliove;;aliud;;aliudque;;aliudue;;aliudve;;alium;;aliumque;;aliumue;;aliumve;;aliusne;;aliusque;;aliusue;;aliusve;;alter;;altera;;alterae;;alteram;;alteramque;;alteramue;;alteraque;;alterarum;;alteras;;alterast;;alterave;;alteri;;alteris;;alterius;;alteriusque;;alteriusue;;alterive;;altero;;alteroque;;alterorum;;alteros;;alteroue;;alterove;;alterque;;alterue;;alterum;;alterumque;;alterumue;;alterumve;;alterve;;ceter;;ceterus;;caetera;;caeterae;;caeteram;;caeteras;;caeteri;;caeteris;;caeterisque;;caeteros;;caeterus;;cetera;;ceterae;;ceteraeque;;ceteraeve;;ceteram;;ceteramque;;ceteraque;;ceterarum;;ceterarumque;;ceteras;;ceterasque;;ceteri;;ceterique;;ceteris;;ceterisque;;ceterisue;;ceterive;;cetero;;ceteroque;;ceterorum;;ceterorumque;;ceterorumue;;ceteros;;ceterosque;;ceterus;;qualis;;quale;;qualecumque;;qualecunque;;qualem;;qualemcunque;;qualemque;;qualemve;;quales;;qualescumque;;qualescunque;;qualeslibet;;qualesque;;qualest;;qualesve;;quali;;qualia;;qualiacunque;;qualiaque;;qualibus;;qualicumque;;qualicunque;;qualine;;qualique;;qualiscunque;;qualislibet;;qualisque;;qualisve;;qualiter;;qualitercumque;;qualitercunque;;qualiterque;;qualium;;qualiumcumque;;talis;;tale;;talem;;talemque;;taleque;;tales;;talesne;;talesque;;talest;;tali;;talia;;taliane;;taliaque;;talibus;;talibusque;;talin;;taline;;talique;;talisque;;talisve;;taliter;;talium;;taliumque;;quantus;;quanta;;quantacumque;;quantacunque;;quantae;;quantaecumque;;quantaelibet;;quantaeque;;quantaeuis;;quantalibet;;quantam;;quantamcumque;;quantamque;;quantane;;quantaque;;quantarum;;quantas;;quantaslibet;;quantasque;;quantasuis;;quantasve;;quantasvis;;quantauis;;quantave;;quantavis;;quanti;;quanticumque;;quantilibet;;quantine;;quantique;;quantis;;quantiscumque;;quantislibet;;quantisque;;quantist;;quantiuis;;quantivis;;quanto;;quantocumque;;quantolibet;;quantoque;;quantorum;;quantos;;quantosne;;quantosque;;quantoue;;quantouis;;quantove;;quantovis;;quantum;;quantumcumque;;quantumlibet;;quantumque;;quantumst;;quantumue;;quantumuis;;quantumvis;;quantuscumque;;quantusne;;quantusque;;tantus;;tanta;;tantadem;;tantae;;tantaene;;tantaeque;;tantam;;tantamne;;tantamque;;tantan;;tantandem;;tantane;;tantaque;;tantarum;;tantarumque;;tantas;;tantasque;;tantast;;tante;;tanti;;tantidem;;tantidemst;;tantine;;tantique;;tantis;;tantisque;;tantist;;tanto;;tanton;;tantone;;tantoque;;tantorum;;tantorumque;;tantos;;tantosque;;tantove;;tantumdem;;tantumdemst;;tantumne;;tantumque;;tantumst;;tantundem;;tantundemque;;tantundemst;;tantusque;;VERBS;;sum;;eram;;eramque;;eramus;;erant;;erantque;;eras;;erat;;eratis;;eratne;;eratque;;erimus;;erimusque;;erin;;eris;;erisque;;erit;;eritis;;eritisque;;eritne;;eritque;;eritue;;ero;;eroque;;erunt;;eruntque;;eruntue;;eruntve;;es;;esne;;esque;;esse;;essem;;essemque;;essemus;;essemusne;;essemusque;;essemusve;;essene;;essent;;essentne;;essentque;;essentve;;esseque;;esses;;essesne;;essesque;;essesve;;esset;;essetis;;essetisne;;essetisque;;essetisve;;essetne;;essetque;;essetve;;esseve;;est;;este;;estene;;esteque;;esteve;;estis;;estisne;;estisque;;estisve;;estne;;esto;;eston;;estote;;estque;;estve;;esve;;fore;;forem;;forent;;fores;;foresque;;foret;;fuam;;fuant;;fuas;;fuat;;fueram;;fueramque;;fueramus;;fuerant;;fueras;;fuerat;;fueratis;;fueratque;;fuere;;fuerim;;fuerimque;;fuerimus;;fuerint;;fuerintne;;fuerintque;;fueris;;fuerisne;;fuerit;;fueritis;;fueritne;;fueritque;;fueritue;;fueritve;;fuero;;fuerunt;;fueruntne;;fueruntque;;fui;;fuimus;;fuimusque;;fuimusve;;fuisse;;fuissem;;fuissemus;;fuissent;;fuisseque;;fuisses;;fuisset;;fuissetis;;fuissetque;;fuisti;;fuistin;;fuistique;;fuistis;;fuistisne;;fuit;;fuitne;;fuitque;;futura;;futurae;;futuraeque;;futuram;;futuramque;;futuraque;;futurarum;;futuras;;futurast;;futurave;;future;;futuri;;futurique;;futuris;;futurisque;;futuro;;futurorum;;futurorumque;;futuros;;futurosque;;futurove;;futurum;;futurumque;;futurumst;;futurumve;;futurus;;futurusne;;futurusque;;futurusve;;siem;;sient;;sies;;siet;;simne;;simque;;simus;;sint;;sintne;;sintque;;sis;;sisne;;sisque;;sist;;sit;;sitis;;sitisque;;sitne;;sitque;;sitve;;sumne;;sumque;;sumus;;sumusque;;sumusve;;sunt;;suntne;;sunto;;suntoque;;suntque;;possum;;posse;;possem;;possemne;;possemque;;possemus;;possent;;possentne;;posseque;;posses;;possesne;;posset;;possetis;;possetisne;;possetne;;possetque;;possim;;possimne;;possimus;;possimusne;;possin;;possint;;possintne;;possintque;;possis;;possisne;;possisque;;possit;;possitis;;possitne;;possitque;;possumne;;possumus;;possumusne;;possunt;;possuntne;;possuntque;;potens;;potensque;;potentem;;potentemque;;potentes;;potentesque;;potenti;;potentia;;potentibus;;potentis;;potentisque;;potentium;;poteram;;poteramus;;poteramusne;;poterant;;poterantque;;poteras;;poterat;;poteratis;;poteratne;;poteratque;;poterimus;;poterin;;poteris;;poterisne;;poterisque;;poterit;;poteritis;;poteritisne;;poteritne;;poteritque;;potero;;poteron;;poterone;;poterunt;;poteruntque;;potes;;potesne;;potesque;;potest;;potestis;;potestisne;;potestne;;potestque;;potueram;;potueramus;;potuerant;;potueras;;potuerat;;potueratis;;potuere;;potuerim;;potuerimus;;potuerint;;potueris;;potuerit;;potueritis;;potueritne;;potueritque;;potuero;;potuerunt;;potueruntne;;potueruntque;;potui;;potuimus;;potuine;;potuique;;potuisse;;potuissem;;potuissemus;;potuissent;;potuisses;;potuisset;;potuissetis;;potuisti;;potuistine;;potuistis;;potuit;;potuitne;;potuitque;;potuitue;;do;;da;;dabam;;dabamus;;dabant;;dabantque;;dabantur;;dabanturque;;dabar;;dabas;;dabat;;dabatque;;dabatur;;dabaturque;;daberis;;dabimus;;dabimusque;;dabin;;dabis;;dabisne;;dabisque;;dabit;;dabitis;;dabitque;;dabitur;;dabiturne;;dabiturque;;dabo;;daboque;;dabor;;dabunt;;dabuntque;;dabuntur;;damur;;damus;;damusque;;dan;;danda;;dandae;;dandam;;dandamque;;dandaque;;dandarum;;dandas;;dandi;;dandique;;dandis;;dando;;dandoque;;dandorum;;dandos;;dandosne;;dandosque;;dandum;;dandumque;;dandumst;;dandus;;dandusque;;dans;;dant;;dante;;dantem;;dantes;;danti;;dantia;;dantibus;;dantis;;danto;;dantque;;dantur;;daque;;dare;;darem;;daremus;;daren;;darent;;darentque;;darentur;;dareque;;darer;;dareris;;dares;;daret;;daretis;;daretque;;daretur;;dari;;darier;;darique;;daris;;dariue;;das;;dasne;;dasque;;dat;;data;;datae;;datam;;datamque;;dataque;;datarum;;datas;;datasque;;datast;;date;;dati;;datin;;datiores;;datique;;datis;;datisne;;datisque;;datne;;dato;;datoque;;datorum;;datos;;datosque;;datque;;datu;;datum;;datumque;;datumst;;datur;;datura;;daturae;;daturam;;daturas;;dature;;daturi;;daturin;;daturique;;daturis;;daturo;;daturos;;daturque;;daturum;;daturumque;;daturus;;daturust;;datus;;datusque;;datust;;daue;;dave;;dederam;;dederamque;;dederamus;;dederant;;dederas;;dederat;;dederatque;;dedere;;dederim;;dederimus;;dederint;;dederis;;dederisque;;dederit;;dederitis;;dederitque;;dedero;;dederunt;;dederuntque;;dedi;;dedimus;;dedin;;dedique;;dedisse;;dedissem;;dedissemus;;dedissent;;dedisses;;dedisset;;dedissetis;;dedissetue;;dedisti;;dedistin;;dedistique;;dedistis;;dedit;;deditque;;dem;;demque;;demus;;demusque;;den;;dent;;dentque;;dentur;;der;;dere;;deris;;des;;desque;;det;;detis;;detisque;;detque;;detur;;deturque;;don;;doque;;dor;;duim;;duint;;duis;;duisque;;duit;;video;;uide;;uideam;;uideamini;;uideamque;;uideamur;;uideamus;;uideamusque;;uideant;;uideantur;;uidear;;uideare;;uidearis;;uideas;;uideasque;;uideat;;uideatis;;uideatque;;uideatur;;uideaturne;;uideaturque;;uidebam;;uidebamini;;uidebamque;;uidebamur;;uidebamus;;uidebant;;uidebantque;;uidebantur;;uidebanturque;;uidebar;;uidebare;;uidebaris;;uidebarque;;uidebas;;uidebat;;uidebatis;;uidebatque;;uidebatur;;uidebaturque;;uidebere;;uideberis;;uidebimur;;uidebimus;;uidebis;;uidebit;;uidebitis;;uidebitur;;uidebo;;uidebor;;uidebunt;;uidebuntque;;uidebuntur;;uidemini;;uidemur;;uidemurne;;uidemus;;uidemusne;;uidemusque;;uiden;;uidenda;;uidendae;;uidendam;;uidendaque;;uidendi;;uidendique;;uidendis;;uidendo;;uidendos;;uidendum;;uidendumque;;uidendumst;;uidendus;;uidens;;uidensque;;uident;;uidente;;uidentem;;uidentes;;uidenti;;uidentibus;;uidentique;;uidentis;;uidentium;;uidento;;uidentque;;uidentur;;uidenturne;;uidenturque;;uideo;;uideon;;uideone;;uideoque;;uideor;;uideorne;;uideorque;;uideram;;uideramus;;uiderant;;uideras;;uiderat;;uideratis;;uidere;;uiderem;;uideremini;;uideremur;;uideremus;;uiderent;;uiderentque;;uiderentur;;uiderenturne;;uidereque;;uiderer;;uiderere;;uidereris;;uideres;;uideret;;uideretis;;uideretque;;uideretur;;uidereturne;;uidereturque;;uideri;;uiderier;;uiderim;;uiderimus;;uiderint;;uiderintne;;uiderintue;;uiderique;;uideris;;uiderisque;;uiderit;;uideritis;;uideritne;;uideritque;;uidero;;uiderunt;;uideruntque;;uides;;uidesne;;uidesque;;uidet;;uidete;;uidetin;;uidetis;;uidetisne;;uideto;;uidetote;;uidetque;;uidetur;;uideturne;;uideturque;;uidi;;uidimus;;uidimusque;;uidin;;uidique;;uidisse;;uidissem;;uidissemque;;uidissemus;;uidissent;;uidissentque;;uidisses;;uidisset;;uidissetis;;uidissetque;;uidissetve;;uidisti;;uidistin;;uidistine;;uidistis;;uidit;;uiditque;;uisa;;uisae;;uisaeque;;uisam;;uisamque;;uisanest;;uisaque;;uisas;;uisast;;uise;;uisen;;uisi;;uisique;;uisis;;uisisque;;uiso;;uison;;uisoque;;uisorum;;uisos;;uisosque;;uisu;;uisum;;uisumque;;uisumst;;uisun;;uisuque;;uisura;;uisurae;;uisuram;;uisuraque;;uisuras;;uisure;;uisuri;;uisuris;;uisuros;;uisurum;;uisurus;;uisurusne;;uisus;;uisusque;;uisust;;uisuve;;vide;;videam;;videamini;;videamque;;videamur;;videamus;;videamusque;;videant;;videantur;;videar;;videare;;videaris;;videas;;videasque;;videat;;videatis;;videatque;;videatur;;videaturne;;videaturque;;videbam;;videbamini;;videbamque;;videbamur;;videbamus;;videbant;;videbantque;;videbantur;;videbanturque;;videbar;;videbare;;videbaris;;videbarque;;videbas;;videbat;;videbatis;;videbatque;;videbatur;;videbaturque;;videbere;;videberis;;videbimur;;videbimus;;videbis;;videbit;;videbitis;;videbitur;;videbo;;videbor;;videbunt;;videbuntque;;videbuntur;;videmini;;videmur;;videmurne;;videmus;;videmusne;;videmusque;;viden;;videnda;;videndae;;videndam;;videndaque;;videndi;;videndique;;videndis;;videndo;;videndos;;videndum;;videndumque;;videndumst;;videndus;;videns;;vidensque;;vident;;vidente;;videntem;;videntes;;videnti;;videntibus;;videntique;;videntis;;videntium;;vidento;;videntque;;videntur;;videnturne;;videnturque;;videon;;videone;;videoque;;videor;;videorne;;videorque;;videram;;videramus;;viderant;;videras;;viderat;;videratis;;videre;;viderem;;videremini;;videremur;;videremus;;viderent;;viderentque;;viderentur;;viderenturne;;videreque;;viderer;;viderere;;videreris;;videres;;videret;;videretis;;videretque;;videretur;;videreturne;;videreturque;;videri;;viderier;;viderim;;viderimus;;viderint;;viderintne;;viderintue;;viderique;;videris;;viderisque;;viderit;;videritis;;videritne;;videritque;;videro;;viderunt;;videruntque;;vides;;videsne;;videsque;;videt;;videte;;videtin;;videtis;;videtisne;;videto;;videtote;;videtque;;videtur;;videturne;;videturque;;vidi;;vidimus;;vidimusque;;vidin;;vidique;;vidisse;;vidissem;;vidissemque;;vidissemus;;vidissent;;vidissentque;;vidisses;;vidisset;;vidissetis;;vidissetque;;vidissetve;;vidisti;;vidistin;;vidistine;;vidistis;;vidit;;viditque;;visa;;visae;;visaeque;;visam;;visamque;;visanest;;visaque;;visas;;visast;;vise;;visen;;visi;;visique;;visis;;visisque;;viso;;vison;;visoque;;visorum;;visos;;visosque;;visu;;visum;;visumque;;visumst;;visun;;visuque;;visura;;visurae;;visuram;;visuraque;;visuras;;visure;;visuri;;visuris;;visuros;;visurum;;visurus;;visurusne;;visus;;visusque;;visust;;visuve;;facio;;fac;;face;;facere;;facerem;;faceremque;;faceremus;;faceren;;facerent;;facerentque;;faceres;;facerest;;faceret;;faceretis;;faceretne;;faceretque;;facereve;;faci;;faciam;;faciamque;;faciamus;;faciant;;faciantque;;faciantur;;facias;;faciasne;;faciasque;;faciat;;faciatis;;faciatque;;faciatur;;faciebam;;faciebamus;;faciebant;;faciebantque;;faciebas;;faciebat;;faciebatis;;faciebatque;;faciemus;;faciemusque;;facienda;;faciendae;;faciendai;;faciendam;;faciendarum;;faciendas;;faciendi;;faciendique;;faciendis;;faciendiue;;faciendive;;faciendo;;faciendoque;;faciendorum;;faciendos;;faciendosque;;faciendum;;faciendumne;;faciendumque;;faciendumst;;faciendumve;;faciendus;;faciens;;facient;;faciente;;facientem;;facientes;;facienti;;facientia;;facientibus;;facientibusque;;facientis;;facientium;;facientque;;facientur;;facies;;faciesque;;faciesve;;faciet;;facietis;;facietisque;;facietque;;facimus;;facioque;;facis;;facisne;;facisque;;facit;;facite;;facitis;;facitne;;facito;;facitoque;;facitote;;facitque;;facitur;;faciunda;;faciundae;;faciundam;;faciundas;;faciundi;;faciundis;;faciundisque;;faciundo;;faciundorum;;faciundos;;faciundum;;faciundumst;;faciundus;;faciunt;;faciuntne;;faciunto;;faciuntque;;facque;;facta;;factae;;factaeque;;factam;;factamque;;factaque;;factarum;;factas;;factast;;factaue;;facte;;facti;;factique;;factis;;factisque;;factius;;facto;;factoque;;factorum;;factorumque;;factos;;factost;;factoue;;factu;;factum;;factumne;;factumque;;factumst;;factumue;;factumve;;factuque;;factura;;facturae;;facturam;;facturas;;facturave;;facturi;;facturis;;facturo;;facturos;;facturosque;;facturum;;facturumque;;facturumue;;facturus;;facturusne;;facturusque;;facturust;;facturusue;;factus;;factusne;;factusque;;factust;;faxim;;faxint;;faxis;;faxit;;faxo;;feceram;;feceramus;;fecerant;;fecerantque;;feceras;;fecerat;;feceratis;;feceratque;;fecere;;fecerim;;fecerimque;;fecerimus;;fecerint;;feceris;;fecerisne;;fecerit;;feceritis;;feceritque;;feceritue;;fecero;;fecerunt;;feceruntque;;feci;;fecimus;;fecique;;fecisse;;fecissem;;fecissemus;;fecissent;;fecissentque;;fecisseque;;fecisses;;fecisset;;fecissetis;;fecissetue;;fecisti;;fecistique;;fecistis;;fecit;;fecitne;;fecitque;;dico;;dic;;dicam;;dicamini;;dicamne;;dicamque;;dicamur;;dicamus;;dicamve;;dicant;;dicantur;;dicar;;dicare;;dicaris;;dicarque;;dicas;;dicasque;;dicasve;;dicat;;dicatis;;dicatque;;dicatur;;dicaturque;;dice;;dicebam;;dicebamini;;dicebamque;;dicebamus;;dicebant;;dicebantque;;dicebantur;;dicebanturque;;dicebar;;dicebare;;dicebas;;dicebat;;dicebatis;;dicebatque;;dicebatur;;dicemur;;dicemus;;dicemusque;;dicen;;dicenda;;dicendae;;dicendaeque;;dicendaeve;;dicendam;;dicendamue;;dicendane;;dicendarum;;dicendas;;dicendast;;dicende;;dicendi;;dicendique;;dicendis;;dicendo;;dicendoque;;dicendos;;dicendove;;dicendum;;dicendumque;;dicendumst;;dicendus;;dicens;;dicensque;;dicensve;;dicent;;dicente;;dicentem;;dicentemque;;dicentes;;dicenti;;dicentia;;dicentibus;;dicentis;;dicentium;;dicentque;;dicentur;;dicere;;dicerem;;diceremus;;dicerent;;dicerentque;;dicerentur;;dicereque;;dicerer;;dicereris;;diceres;;diceresne;;diceret;;diceretis;;diceretque;;diceretur;;dicereturue;;diceris;;dices;;dicesne;;dicesque;;dicet;;dicetis;;dicetne;;dicetque;;dicetur;;diceturque;;dici;;dicier;;dicimini;;dicimur;;dicimus;;dicin;;dicique;;dicis;;dicisne;;dicisque;;dicit;;dicite;;dicitis;;dicito;;dicitque;;dicitur;;diciturne;;dicta;;dictae;;dictaeque;;dictam;;dictamque;;dictaque;;dictarum;;dictas;;dictasque;;dictast;;dicte;;dicti;;dictique;;dictis;;dictisque;;dictiue;;dicto;;dictoque;;dictorum;;dictorumque;;dictos;;dictoue;;dictove;;dictu;;dictum;;dictumque;;dictumst;;dictumue;;dictumve;;dictuque;;dictura;;dicturam;;dicturas;;dicturi;;dicturis;;dicturo;;dicturos;;dicturosque;;dicturum;;dicturumque;;dicturus;;dicturusne;;dicturusque;;dicturusve;;dictus;;dictusque;;dictust;;dicunda;;dicundae;;dicundi;;dicundis;;dicundo;;dicundum;;dicundumst;;dicunt;;dicunto;;dicuntque;;dicuntur;;dixe;;dixeram;;dixeramus;;dixerant;;dixeras;;dixerat;;dixeratis;;dixere;;dixerim;;dixerimus;;dixerin;;dixerint;;dixeris;;dixerisne;;dixerit;;dixeritis;;dixeritne;;dixeritque;;dixero;;dixerunt;;dixeruntque;;dixi;;diximus;;dixin;;dixique;;dixisse;;dixissem;;dixissemus;;dixissent;;dixisses;;dixisset;;dixissetque;;dixisti;;dixistique;;dixistis;;dixit;;dixitne;;dixitque;;habeo;;habe;;habeam;;habeamini;;habeamus;;habeant;;habeantne;;habeantque;;habeantur;;habear;;habeare;;habearis;;habeas;;habeasne;;habeasque;;habeat;;habeatis;;habeatque;;habeatur;;habeaturque;;habebam;;habebamus;;habebant;;habebantque;;habebantur;;habebas;;habebat;;habebatis;;habebatque;;habebatur;;habebaturque;;habebere;;habeberis;;habebimur;;habebimus;;habebis;;habebit;;habebitis;;habebitque;;habebitur;;habebo;;habebor;;habebunt;;habebuntque;;habebuntur;;habemur;;habemus;;haben;;habenda;;habendae;;habendaeque;;habendam;;habendamque;;habendarum;;habendas;;habendast;;habendi;;habendique;;habendis;;habendo;;habendoque;;habendorum;;habendos;;habendum;;habendumque;;habendumst;;habendus;;habendusve;;habens;;habensque;;habent;;habente;;habentem;;habentes;;habenti;;habentia;;habentibus;;habentis;;habentium;;habentne;;habento;;habentque;;habentur;;habeon;;habeoque;;habeor;;habere;;haberem;;haberemque;;haberemus;;haberent;;haberentque;;haberentue;;haberentur;;habereque;;haberes;;haberet;;haberetis;;haberetne;;haberetque;;haberetur;;habereturque;;haberi;;haberier;;haberique;;haberis;;habes;;habesne;;habet;;habete;;habetin;;habetis;;habetisque;;habeto;;habetote;;habetque;;habetur;;habeturque;;habita;;habitae;;habitam;;habitaque;;habitas;;habitasque;;habitast;;habite;;habiti;;habitior;;habitis;;habitissimum;;habito;;habitoque;;habitorum;;habitos;;habitosque;;habitu;;habitum;;habitumque;;habitune;;habituque;;habitura;;habiturae;;habituram;;habituras;;habituri;;habiturine;;habituris;;habituro;;habituros;;habiturum;;habiturumue;;habiturus;;habiturusque;;habiturust;;habiturusue;;habitus;;habitusque;;habitust;;habueram;;habueramus;;habuerant;;habueras;;habuerat;;habuere;;habuerim;;habuerimus;;habuerint;;habueris;;habuerisque;;habuerit;;habueritis;;habueritne;;habueritque;;habuero;;habuerunt;;habueruntque;;habui;;habuimus;;habuique;;habuisse;;habuissem;;habuissemus;;habuissent;;habuisseque;;habuisses;;habuisset;;habuissetis;;habuissetque;;habuisti;;habuistis;;habuit;;habuitne;;habuitque;;fero;;fer;;feram;;feramque;;feramur;;feramus;;ferant;;ferantur;;feranturque;;ferar;;ferare;;feraris;;feras;;ferasque;;ferasue;;ferat;;feratis;;feratque;;feratur;;feraturque;;ferebam;;ferebamur;;ferebamus;;ferebant;;ferebantque;;ferebantur;;ferebanturque;;ferebar;;ferebare;;ferebaris;;ferebas;;ferebat;;ferebatis;;ferebatque;;ferebatur;;ferebaturque;;feremur;;feremus;;feren;;ferenda;;ferendae;;ferendam;;ferendaque;;ferendarum;;ferendas;;ferendi;;ferendine;;ferendis;;ferendo;;ferendos;;ferendum;;ferendus;;ferens;;ferent;;ferente;;ferentem;;ferentes;;ferenti;;ferentia;;ferentibus;;ferentis;;ferentium;;ferentur;;ferere;;fereris;;feres;;feresne;;feret;;feretis;;feretque;;feretur;;feroque;;feror;;ferorque;;ferque;;ferre;;ferrem;;ferremus;;ferrent;;ferrentur;;ferreque;;ferres;;ferret;;ferretis;;ferretne;;ferretque;;ferretur;;ferri;;ferrique;;ferrist;;ferriue;;ferrive;;fers;;fersne;;fersque;;fert;;ferte;;fertis;;fertne;;ferto;;fertor;;fertque;;fertur;;ferturque;;ferue;;ferundae;;ferundam;;ferundast;;ferundi;;ferundis;;ferundo;;ferundum;;ferunt;;ferunto;;feruntque;;feruntur;;lata;;latae;;latam;;latamque;;lataque;;latarum;;latarumque;;latas;;late;;lateque;;latest;;lati;;latin;;latine;;latineque;;latior;;latiora;;latiore;;latiorem;;latioremque;;latiores;;latioribus;;latioribusque;;latioris;;latiorque;;latiorum;;latique;;latis;;latisque;;latissima;;latissimae;;latissimam;;latissimarum;;latissimas;;latissime;;latissimeque;;latissimi;;latissimis;;latissimo;;latissimos;;latissimum;;latissimus;;latius;;latiusque;;lato;;laton;;latone;;latoque;;latorum;;latorumque;;latos;;latosque;;latu;;latum;;latumque;;latumst;;latura;;laturam;;laturas;;laturi;;laturique;;laturis;;laturo;;laturos;;laturum;;laturumque;;laturus;;latus;;latusque;;tetulere;;tetulerit;;tetulero;;tetulerunt;;tetuli;;tetulisse;;tetulissem;;tetulissent;;tetulisset;;tetulisti;;tetulit;;tuleram;;tuleramus;;tulerant;;tuleras;;tulerat;;tulere;;tulerim;;tulerimus;;tulerint;;tulerintque;;tuleris;;tulerit;;tuleritis;;tulero;;tulerunt;;tuleruntque;;tuli;;tulimus;;tulimusque;;tulique;;tulisse;;tulissem;;tulissemus;;tulissent;;tulisses;;tulisset;;tulissetis;;tulisti;;tulistis;;tulit;;tulitque;;fio;;fi;;fiam;;fiamque;;fiamus;;fiant;;fiantque;;fias;;fiat;;fiatque;;ficumque;;fiebam;;fiebant;;fiebat;;fient;;fientque;;fierem;;fierent;;fieres;;fieret;;fieretque;;fieretue;;fieri;;fierine;;fierique;;fieriue;;fies;;fiet;;fietque;;fimus;;fis;;fit;;fite;;fitque;;fiunt;;fiuntque;;inquam;;inquamst;;inque;;inquiebat;;inquies;;inquiet;;inquii;;inquimus;;inquin;;inquis;;inquisti;;inquit;;inquito;;inquiunt;;aio;;aiant;;aias;;aiat;;aibant;;aibas;;aibat;;aiebam;;aiebamus;;aiebant;;aiebas;;aiebat;;aiebatis;;ain;;ais;;aisne;;ait;;aitque;;aiunt;;aiuntque";
 
 
-const defaultconf = ";;;true;;;true;;;false;;;false;;;true;;;true;;;true;;;false;;;false;;;false;;;true;;;false;;;false;;;false;;;true;;;true;;;true;;;true;;;;;;;;;false;;;false;;;false;;;false;;;false;;;1;;;1;;;;;;;;;;;;0;;;1000;;;;;;;;;cosineM;;;1;;;0;;;false;;;false;;;false;;;false;;;false;;;false;;;true;;;true;;;;;;;;;;;;;;;;;;;;;;;;;;;4;;;;;;;;;3;;;;;;2024-04-25;;;;;;default;;;;;;false;;;false;;;false;;;1;;;430;;;1;;;0;;;1000;;;1000;;;false;;;false;;;false;;;false;;;;;;;;;".split(";;;");
+const defaultconf = ";;;true;;;true;;;false;;;false;;;true;;;true;;;true;;;false;;;false;;;false;;;true;;;false;;;false;;;true;;;true;;;true;;;true;;;true;;;;;;;;;false;;;false;;;false;;;false;;;false;;;3;;;3;;;0;;;;;;;;;0;;;1000;;;;;;;;;euclideanM;;;1;;;7;;;false;;;false;;;false;;;false;;;false;;;false;;;true;;;true;;;;;;;;;;;;;;;;;;;;;;;;none;;;4;;;subject;;;;;;3;;;id;;;date;;;;;;default;;;;;;true;;;false;;;false;;;1;;;430;;;1;;;1;;;1000;;;1000;;;false;;;false;;;false;;;false;;;;;;;;;;;;false;;;false".split(";;;");
 normalizearraykeys(); //for other stop word lists
 
 const nameofapp = "styloAHonline";
@@ -76,6 +76,22 @@ dbre.onsuccess = function( e ){
 
 
 /*HELPER*/
+function downpngofgraph(){
+    console.log("canvas to png, no svg");
+    let outerdiv = document.querySelector( ".vis-network" ); //first elemnt of this class, no other vis.js drawings
+    let c = outerdiv.children[0];
+    
+    //let d = c.toDataURL("image/png");
+    let dl = document.createElement('a');
+    dl.setAttribute('download', document.getElementById("readynaming").value+".png");
+    
+    c.toBlob( function( blob ){
+      let url = URL.createObjectURL( blob );
+      dl.setAttribute('href', url);
+      dl.click();
+    }, 'image/png');
+}
+
 function filenotallowed( stringof ){
     if(stringof.indexOf(".csv") != -1 ){
         return false;
@@ -106,7 +122,16 @@ let downelmarray = [];
 function clickitall(){
     for( let i = 0; i < downelmarray.length; i += 1 ){
         //console.log(i);
-        setTimeout( function(){ downelmarray[i].click(); console.log(i, i*durationbetweendownloads, downelmarray.length); if(i == downelmarray.length-1){if(parseInt(localStorage.getItem("multiconfimax")) > parseInt(localStorage.getItem("multiconfindex"))){setTimeout( function(){ localStorage.setItem("multiconfindex", parseInt(localStorage.getItem("multiconfindex"))+1 );runmulticonfig();}, (i*durationbetweendownloads)+durationbetweendownloads); } } }, i*durationbetweendownloads );
+        setTimeout( 
+            function(){ 
+                downelmarray[i].click(); 
+                console.log(i, i*durationbetweendownloads, downelmarray.length); 
+                if( i == downelmarray.length-1 ){
+                    if( parseInt(localStorage.getItem("multiconfimax")) > parseInt(localStorage.getItem("multiconfindex"))){
+                        setTimeout( function(){ 
+                                        localStorage.setItem("multiconfindex", parseInt(localStorage.getItem("multiconfindex"))+1 );
+                                        runmulticonfig();
+                                        }, (i*durationbetweendownloads)+durationbetweendownloads); } } }, i*durationbetweendownloads );
     }
 }
 
@@ -297,6 +322,10 @@ function sisa( ){
     if( parseBool(localStorage.getItem( "deldiak" )) != document.getElementById( "deldiak").checked ){
         if( lastchangeokk > 1 ){ lastchangeokk = 1;}
         localStorage.setItem( "deldiak", document.getElementById("deldiak").checked);
+    }
+    if( parseBool(localStorage.getItem( "deldiakmodern" )) != document.getElementById( "deldiakmodern").checked ){
+        if( lastchangeokk > 1 ){ lastchangeokk = 1;}
+        localStorage.setItem( "deldiakmodern", document.getElementById("deldiakmodern").checked);
     }
     if( parseBool(localStorage.getItem( "unkown" )) != document.getElementById( "unkown").checked ){
         if( lastchangeokk > 1 ){ lastchangeokk = 1;}
@@ -490,7 +519,11 @@ function sisa( ){
     if( parseBool(localStorage.getItem( "expclustervis" )) != document.getElementById( "expclustervis").checked ){
         if( lastchangeokk > 6 ){ lastchangeokk = 6; }
         localStorage.setItem( "expclustervis", document.getElementById("expclustervis").checked);
-    }
+    } 
+    if( parseBool(localStorage.getItem( "expclustervispng" )) != document.getElementById( "expclustervispng").checked ){
+        if( lastchangeokk > 6 ){ lastchangeokk = 6; }
+        localStorage.setItem( "expclustervispng", document.getElementById("expclustervispng").checked);
+    } 
     
     //protocol text
     localStorage.setItem( "protokollinput", document.getElementById("protokollinput").value);
@@ -542,6 +575,7 @@ function getlastselection(){
         document.getElementById("iota").checked = parseBool(localStorage.getItem( "iota"));
         document.getElementById("sigma").checked = parseBool(localStorage.getItem( "sigma"));
         document.getElementById("deldiak").checked = parseBool(localStorage.getItem( "deldiak"));
+        document.getElementById("deldiakmodern").checked = parseBool(localStorage.getItem( "deldiakmodern"));
         document.getElementById("unkown").checked = parseBool(localStorage.getItem( "unkown"));
         document.getElementById("ligatu").checked = parseBool(localStorage.getItem( "ligatu"));
         document.getElementById("eqcase").checked = parseBool(localStorage.getItem( "eqcase"));
@@ -590,6 +624,7 @@ function getlastselection(){
         document.getElementById("expdistmatrix").checked = parseBool(localStorage.getItem("expdistmatrix"));
         document.getElementById("expclustertext").checked = parseBool(localStorage.getItem("expclustertext"));
         document.getElementById("expclustervis").checked = parseBool(localStorage.getItem("expclustervis"));
+        document.getElementById("expclustervispng").checked = parseBool(localStorage.getItem("expclustervispng"));
         
         document.getElementById("protokollinput").value = localStorage.getItem( "protokollinput");
         document.getElementById("protokollnorm").value = localStorage.getItem( "protokollinput");
@@ -728,7 +763,9 @@ function getconficasarray(){
         document.getElementById( "useinvstopwlist" ).checked,
         document.getElementById( "textlennormsize").value,
         document.getElementById( "textlennormpartscount").value,
-        document.getElementById( "vocabularsizebpe").value
+        document.getElementById( "vocabularsizebpe").value,
+        document.getElementById("expclustervispng").checked,
+        document.getElementById("deldiakmodern").checked
     ];
     return A;
 }
@@ -813,10 +850,12 @@ function setconfigfromarray( A ){
     document.getElementById( "textlennormsize").value = A[76];
     document.getElementById( "textlennormpartscount").value = A[77];
     document.getElementById( "vocabularsizebpe").value = A[78];
+    document.getElementById("expclustervispng").checked = parseBool(A[79]);
+    document.getElementById("deldiakmodern").checked = parseBool(A[80]);
 }
 
 /*config file*/
-function writeconfigfile( ){
+function writeconfigfile( addition ){
     //this is a
 
     let stringofconf = "STYLO-ONLINE PROTOCAL & CONFIG\n\n";
@@ -923,6 +962,11 @@ function writeconfigfile( ){
         } else {
             stringofconf += "- NOT diacritics deleted \n";
         }
+        if( document.getElementById("deldiakmodern").checked ){
+            stringofconf += "+ modern diacritics deleted \n";
+        } else {
+            stringofconf += "- NOT modern diacritics deleted \n";
+        }
         if( document.getElementById("unkown").checked ){
             stringofconf += "+ unknown signs deleted \n";
         } else {
@@ -1014,7 +1058,7 @@ function writeconfigfile( ){
     stringofconf += "COUNTING SEC\n";
     stringofconf += "Note: " + document.getElementById( "protokollcount" ).value + "\n\n";
     stringofconf += "Series increment: " + document.getElementById("mfwcullinc").value +"\n";
-    stringofconf += "Counting: " + document.getElementById("userelfreqdo").value +"(0:abs, 1:ref, 2:0/1, 3:TF-IDF, 4:TF-IDF/TF-corpus, 5: TF)\n";
+    stringofconf += "Counting: " + document.getElementById("userelfreqdo").value +"(0:abs, 1:ref, 2:0/1, 3:TF-IDF, 4:TF-IDF/TF-corpus, 5: TF, 6: z-Scores)\n";
     stringofconf += "Maximum length of frequnecy list: " +document.getElementById("mfwculllistcuttoff").value +"\n";
     stringofconf += "From min frequency: " +document.getElementById("mfwmin").value +" to max frequency value"+ document.getElementById("mfwmax").value+"\n";
     stringofconf += "MFW per text: " +document.getElementById("mfwpertext").checked+"\n";
@@ -1043,6 +1087,7 @@ function writeconfigfile( ){
     stringofconf += "Export distance matrix: " +document.getElementById("expdistmatrix").checked +"\n";
     stringofconf += "Export cluster as text: " +document.getElementById("expclustertext").checked +"\n";
     stringofconf += "Export cluster as SVG: " +document.getElementById("expclustervis").checked +"\n";
+    stringofconf += "Export PNG instead of SVG: " +document.getElementById("expclustervispng").checked +"\n";
 
     //put the machine part
     stringofconf += "\n\n\n\n\n\n\n\n\n\n\n\n\n:::::::::::";
@@ -1050,7 +1095,11 @@ function writeconfigfile( ){
     stringofconf += ca.join(";;;");
     //console.log(stringofconf);
     //dodownit( stringofconf, "styloahonline.config", "text/txt" );
-    setTimeout( function(){ dodownit( stringofconf, "styloahonline.config", "text/txt" ) }, getrandomtimeshundret(len(stringofconf)));
+    if( addition == undefined ){
+        const datenew = new Date();
+        addition = datenew.toISOString();
+    }
+    setTimeout( function(){ dodownit( stringofconf, "styloahonlineconfig_"+addition+".config", "text/txt" ) }, getrandomtimeshundret(len(stringofconf)));
 }
 
 function readinconfigurationfile( elm ){
@@ -1091,7 +1140,7 @@ function genallcmeasure(){
         document.getElementById( "nameid" ).value = i;
         buildaname();
         sisa();
-        writeconfigfile();
+        writeconfigfile( oo[i].split(" ").join( "-" ) );
     }
 }
 
@@ -1136,7 +1185,7 @@ function genallctoken(){
                 
                 buildaname();
                 sisa();
-                writeconfigfile();
+                writeconfigfile( s.split(" ").join("-") );
             }
         } else {
             document.getElementById( "nameid" ).value = i;
@@ -1144,7 +1193,7 @@ function genallctoken(){
             
             buildaname();
             sisa();
-            writeconfigfile();
+            writeconfigfile( s.split(" ").join("-") );
         }
     }
 }
@@ -1171,6 +1220,8 @@ function genallccount(){
             s= "TF-IDF-TF-corpus";
         } else if( 5 == oo[i] ){
             s= "TF";
+        } else if( 6 == oo[i] ){
+            s= "z-Scores";
         }
         console.log("Build config file for "+ s + " counting.");
         document.getElementById( "userelfreqdo" ).value = oo[i];
@@ -1178,7 +1229,7 @@ function genallccount(){
         document.getElementById( "nameid" ).value = i;
         buildaname();
         sisa();
-        writeconfigfile();
+        writeconfigfile( s.split( " " ).join( "-" ));
     }
 }
 
@@ -1404,6 +1455,70 @@ function powertoglocke( histo ){ //sorted from big to small histogramm key value
     return sortable;
 }
 
+function buildzscore( tsounts ){
+    //console.log(tsounts);
+    let returndict = {};
+    let mean = {};
+    let tocount = {};
+    for(let te in tsounts ){
+        //console.log(te);
+        for( let to in tsounts[ te ] ){
+            const tt = tsounts[ te ][ to ][ 0 ];
+            //console.log(to, tt);
+            if( mean[ tt ] ){
+                mean[ tt ] += tsounts[ te ][ to ][1];
+                tocount[ tt ] += 1;
+            } else {
+                mean[ tt ] = tsounts[ te ][ to ][1];
+                tocount[ tt ] = 1;
+            }
+        }
+    }
+   
+    for( let tt in mean ){
+        mean[ tt ] = mean[ tt ] / tocount[ tt ];
+    }
+    
+    let stdabws = {};
+    for(let te in tsounts ){
+        for( let to in tsounts[ te ] ){
+            const tt = tsounts[ te ][ to ][ 0 ];
+            const tz = tsounts[ te ][ to ][ 1 ];
+            const mz = mean[tt];
+            if( stdabws[ tt ] ){
+                stdabws[ tt ] += ( tz - mz ) * ( tz - mz );
+            } else {
+                stdabws[ tt ] = ( tz - mz ) * ( tz - mz );
+            }
+        }
+    }
+    
+    for( let tt in stdabws ){
+        stdabws[ tt ] = Math.sqrt( stdabws[ tt ] / tocount[ tt ] );
+    }
+    //console.log(stdabws);
+    for(let te in tsounts ){
+        returndict[ te ] = [];
+        let negvalextream = 0;
+        for( let to in tsounts[ te ] ){
+            const tt = tsounts[ te ][ to ][ 0 ];
+            const tval = ( tsounts[ te ][ to ][ 1 ] - mean[ tt ] ) / ( stdabws[ tt ] + 1 );
+            
+            if( negvalextream > tval ){
+                negvalextream = tval;
+            }
+            returndict[ te ].push( [tt, tval ] );
+        }
+        //make it all positive; shift distribution to the right
+        negvalextream = Math.abs( negvalextream );
+        for(let i in returndict[ te ] ){
+            returndict[ te ][ i ][ 1 ] = returndict[ te ][ i ][ 1 ] + negvalextream;
+        }
+    }
+    
+    //console.log(returndict);
+    return returndict;
+}
 /*application of normalization*/
 function applnorm( ainp ){
     let binp = normatext( ainp, analysisNormalform );
@@ -1460,6 +1575,9 @@ function applnorm( ainp ){
         } 
         if( document.getElementById("deldiak").checked ){
             binp = deldiak( binp );
+        }
+        if( document.getElementById("deldiakmodern").checked ){
+            binp = unicodediacriticsremove( binp );
         } 
         if( document.getElementById("unkown").checked ){
             binp = delunknown( binp );
@@ -1530,6 +1648,7 @@ function appldecomp( fn, ainp ){
     }
     if( document.getElementById("justgrosz").checked  ){
         thereturnresult = justGROSZ( binp.normalize( analysisNormalform ).split( " " ) );
+        //console.log(thereturnresult)
         //return thereturnresult;
     }
     
@@ -1570,9 +1689,9 @@ function appldecomp( fn, ainp ){
     } else if( document.getElementById("gramsel").value == 3 ){
         if( thereturnresult ){
             if( thereturnresult instanceof Array ){
-                return ngramWhole( thereturnresult, N, O );
+                return ngramWhole( thereturnresult.join( " " ), N, O ); //string input needed
             } else {
-                return ngramWhole( thereturnresult.split( " " ), N, O );
+                return ngramWhole( thereturnresult, N, O );
             }
         } else {
             return ngramWhole( binp, N, O );
@@ -1610,19 +1729,19 @@ function appldecomp( fn, ainp ){
             }
         }
         return flattendresu;
-        return tempresu;
+        //return tempresu;
     } else if( document.getElementById("gramsel").value == 9 ){ //flatneighbours, not provided now
         return fnb( binp );
     } else if( document.getElementById("gramsel").value == 10 ){ //pyte pair encoding
         if( thereturnresult ){
             //console.log()
             if( thereturnresult instanceof Array ){
-                return aplBPE( thereturnresult, V );
+                return aplnBPE( thereturnresult, V );
             } else {
-                return aplBPE( thereturnresult.split( "" ), V );
+                return aplnBPE( thereturnresult.split( "" ), V );
             }
         } else {
-            return aplBPE( binp.split( "" ), V );
+            return aplnBPE( binp.split( "" ), V );
         }
     } 
     //console.log("AAAAAAAAAA", thereturnresult);
@@ -1642,7 +1761,8 @@ function appldecomp( fn, ainp ){
 
 function applcounting( alltoken ){
     //console.log( alltoken );
-    if( alltoken[0].length == alltoken[1].length && alltoken[0].length == 2 && alltoken[0] instanceof Array){ // that is a byte pair encoding statistics (implementation does implicit counting and no tokenization)
+    
+    if( alltoken[0].length == alltoken[1].length && alltoken[0].length == 2 && alltoken[0] instanceof Array){ // that is a "byte pair encoding" statistics (implementation does implicit counting and no tokenization)
         return alltoken;
     }
     let tokenfreq = {};
@@ -1664,7 +1784,7 @@ function applcounting( alltoken ){
     }
     //console.log( lenofall, len(alltoken) );
     //relative frqs
-    if( document.getElementById("userelfreqdo").value == 1 ||  document.getElementById("userelfreqdo").value == 3 ||  document.getElementById("userelfreqdo").value == 4 || document.getElementById("userelfreqdo").value == 5 ){ //rel freq and TF-IDF  tf part
+    if( document.getElementById("userelfreqdo").value == 1 ||  document.getElementById("userelfreqdo").value == 3 ||  document.getElementById("userelfreqdo").value == 4 || document.getElementById("userelfreqdo").value == 5 || document.getElementById("userelfreqdo").value == 6 ){ //rel freq and TF-IDF, TF part, z-Score
         //console.log("rel frequ");
         
         let unterdstrich = lenofall;
@@ -1678,7 +1798,7 @@ function applcounting( alltoken ){
             }
         }
         for( let t in tokenfreq ){
-            tokenfreq[ t ] = tokenfreq[ t ]/unterdstrich;
+            tokenfreq[ t ] = tokenfreq[ t ] / unterdstrich;
         }
     } //otherwise it is left like it is - i.e. absolute valuation 
     
@@ -1892,7 +2012,7 @@ function builddm( ttf ){
         }
         standardabw = stdabw( justthehauf );
     }
-    //console.log(dmeasure);
+    //console.log(dmeasure, dmeasuredict, fktname );
     for( let te in ttf ){
         let result = [];
         
@@ -1931,7 +2051,7 @@ function builddm( ttf ){
 function clusterthetexts( DM, TS ){
     const selection = parseInt( document.getElementById( "clustsel" ).value );
     const linkage = parseInt( document.getElementById( "hierarclustlinkage" ).value );
-    if( selection == 0 || selection == 7 || selection == 8 ){ //hierachical clustering
+    if( selection == 0 || selection == 7 || selection == 8 || selection == 9 ){ //hierachical clustering
         return clusthierarch( DM, TS, linkage );
     } else if( selection == 1 ){ //MDS Eigenvectors
         return clusthierarch( DM, TS, linkage ); //JUST AS A PLACEHOLDER
@@ -2431,7 +2551,7 @@ function showupallresultsandmenus(){
     }
     //heat map dists tw, th, scale, move, dimred1, namearray, linksss
     const thesvgelemP = getbarplot( tw, th, scale, move, profiles, fnames, "" ); 
-    thesvgelemP.setAttributeNS(null, "id", "thebarplotprofile");
+    thesvgelemP.setAttributeNS( null, "id", "thebarplotprofile" );
     elmtoputin4.appendChild( thesvgelemP );
     
     const elmtoputin5 = document.getElementById( "resultsofdist" );
@@ -2514,6 +2634,134 @@ function showupallresultsandmenus(){
         const thesvgelemZ = drawhclustheat( tw, th, scale, move, clusters, dmts, "console.log(this)" ); 
         thesvgelemZ.setAttributeNS(null, "id", "theclust");
         elmtoputin6.appendChild( thesvgelemZ );
+    } else if( selection == 9 ){ //hierarchical cluster displayed in network with forceatlas
+        //build data set
+        let ll = fnames.length;
+        let nodes = [];
+    
+        for( let a = 0; a < ll; a += 1 ){
+            nodes.push( { "id": a, "label": fnames[a], "title": fnames[a], "group": a } ); //missing is value - could be textlength
+        }
+        
+        let edges = [];
+        
+        for( let a = 0; a < ll; a += 1 ){
+            let zwarr = Array.from( dmts[a] );
+            let weights = zwarr.sort((a, b) => a - b).slice(0, neighbours);
+            let index = [];
+            
+            for( let w = 0; w < weights.length; w += 1){
+                for( let b = 0; b < ll; b += 1 ){
+                    if( dmts[a][b] == weights[w] ){
+                        index.push(b);
+                        break; //if you have two equal weights this will err the index!!!
+                    }
+                }
+            }
+            //console.log(index, weights);
+            for(let i = 0; i < index.length; i += 1 ){
+                if(a != index[ i ]){
+                    edges.push( { "from": a, "to": index[i], "value": 1/weights[i] } );
+                }
+            }
+        }
+        //console.log(edges);
+        
+        let data = {
+          nodes: nodes,
+          edges: edges,
+        };
+        //generate container div
+        //let container = document.createElement( 'div' );
+        //appley network
+        
+        let options = {
+          physics: {
+            stabilization: false,
+            wind: { x: 0, y: 0 },
+          },
+          nodes: {
+            shape: "dot",
+            scaling: {
+              /*customScalingFunction: function( value ){
+                
+                    
+                return 15;
+              },*/
+              min: 5,
+              max: 100,
+            },
+          },
+          width: tw.toString()+"px",
+          height: th.toString()+"px",
+          configure: {
+            filter: function (option, path) {
+              if(path.indexOf("physics") !== -1) {
+                return true;
+              }
+              if(path.indexOf("arrows") !== -1) {
+                return true;
+              }
+              /*if(path.indexOf("scaling") !== -1) {
+                return true;
+              }*/
+              if(path.indexOf("smooth") !== -1 || option === "smooth") {
+                return true;
+              }
+              if(option === "inherit") {
+                return true;
+              }
+              if(option === "roundness") {
+                return true;
+              }
+              if(option === "hideEdgesOnDrag") {
+                return true;
+              }
+              if(option === "hideNodesOnDrag") {
+                return true;
+              }
+              return false;
+            },
+            container: document.getElementById("config"),
+            showButton: true,
+          }
+        };
+        let network = new vis.Network( elmtoputin6, data, options );
+        
+        
+
+      function draw() {
+        
+
+        // create a network
+        //var container = document.getElementById("mynetwork");
+
+        var options = {
+          physics: {
+            stabilization: false,
+            wind: { x: 0, y: 0 },
+          },
+          configure: {
+            filter: function (option, path) {
+              if (path.indexOf("physics") !== -1) {
+                return true;
+              }
+              if (path.indexOf("smooth") !== -1 || option === "smooth") {
+                return true;
+              }
+              return false;
+            },
+            container: document.getElementById("config"),
+          },
+        };
+        network = new vis.Network(elmtoputin6, data, options);
+      }
+      //draw();
+    
+        
+        
+        //push container to the html
+        //elmtoputin6.appendChild( container );
     }
     
 }
@@ -2599,6 +2847,10 @@ function oldrun(){
                     console.log("Exported statistics (counting) as: ", nameoffile+"_counting__"+document.getElementById("readynaming").value+".csv");
                 } 
             }
+            //z-Scores
+            if( document.getElementById("userelfreqdo").value == 6 ){
+                countsts = buildzscore( countsts );
+            } 
             //compute the profile of each text and jon them into one matrix, appley the counting rules (i.e. culling)
             profiles = buildprofiles( countsts );
             console.log("Done: Building and filling the profiles of the texts.");
@@ -2636,8 +2888,13 @@ function oldrun(){
             }
             if( document.getElementById("expclustervis").checked ){//svg cluster down
                  //downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value );
-                 setTimeout( function(){ downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
-                 console.log("Exported CLUSTER SVG.");
+                 //expclustervispng
+                 if( document.getElementById("expclustervispng").checked ){
+                    setTimeout( function(){ svgaspngdown( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
+                 } else {
+                    setTimeout( function(){ downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
+                 }
+                 console.log("Exported CLUSTER SVG/PNG.");
             }
         } else if( lastchangeokk == 2 ){
             console.log("2 redo: decomp count dist clust exp", fnames, fnames.length);
@@ -2673,6 +2930,10 @@ function oldrun(){
                     console.log("Exported statistics (counting) as: ", nameoffile+"_counting_"+document.getElementById("readynaming").value+".txt");
                 } 
             }
+            //z-Scores
+            if( document.getElementById("userelfreqdo").value == 6 ){
+                countsts = buildzscore( countsts );
+            }
             //compute the profile of each text and jon them into one matrix, appley the counting rules (i.e. culling)
             profiles = buildprofiles( countsts );
             console.log("Done: Building and filling the profiles of the texts.");
@@ -2710,8 +2971,12 @@ function oldrun(){
             }
             if( document.getElementById("expclustervis").checked ){//svg cluster down
                  //downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value );
-                 setTimeout( function(){ downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
-                 console.log("Exported CLUSTER SVG.");
+                 if( document.getElementById("expclustervispng").checked ){
+                    setTimeout( function(){ svgaspngdown( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
+                 } else {
+                    setTimeout( function(){ downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
+                 }
+                 console.log("Exported CLUSTER SVG/PNG.");
             }
         } else if( lastchangeokk == 3 ){
             console.log("3 redo: count dist clust exp");
@@ -2730,6 +2995,10 @@ function oldrun(){
                     console.log("Exported statistics (counting) as: ", nameoffile+"_counting_"+document.getElementById("readynaming").value+".txt");
                 } 
             }
+            //z-Scores
+            if( document.getElementById("userelfreqdo").value == 6 ){
+                countsts = buildzscore( countsts );
+            }
             //compute the profile of each text and jon them into one matrix, appley the counting rules (i.e. culling)
             profiles = buildprofiles( countsts );
             console.log("Done: Building and filling the profiles of the texts.");
@@ -2767,8 +3036,12 @@ function oldrun(){
             }
             if( document.getElementById("expclustervis").checked ){//svg cluster down
                  //downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value );
-                 setTimeout( function(){ downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
-                 console.log("Exported CLUSTER SVG.");
+                 if( document.getElementById("expclustervispng").checked ){
+                    setTimeout( function(){ svgaspngdown( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
+                 } else {
+                    setTimeout( function(){ downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
+                 }
+                 console.log("Exported CLUSTER SVG/PNG.");
             }
         } else if( lastchangeokk == 4 ){
             console.log("4 redo: dist clust exp");
@@ -2808,9 +3081,13 @@ function oldrun(){
                 console.log("Exported clusters NODES and EDGES files.");
             }
             if( document.getElementById("expclustervis").checked ){//svg cluster down
-                 //downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value );
-                 setTimeout( function(){ downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
-                 console.log("Exported CLUSTER SVG.");
+                 if( document.getElementById("expclustervispng").checked ){
+                    setTimeout( function(){ svgaspngdown( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
+                 } else {
+                    setTimeout( function(){ downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
+                 }
+                 //setTimeout( function(){ downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
+                 console.log("Exported CLUSTER SVG/PNG.");
             }
         } else if( lastchangeokk == 5 ){
             console.log("5 redo: clust exp");
@@ -2828,9 +3105,13 @@ function oldrun(){
                 console.log("Exported clusters NODES and EDGES files.");
             }
             if( document.getElementById("expclustervis").checked ){//svg cluster down
-                 //downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value );
-                 setTimeout( function(){ downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
-                 console.log("Exported CLUSTER SVG.");
+                 if( document.getElementById("expclustervispng").checked ){
+                    setTimeout( function(){ svgaspngdown( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
+                 } else {
+                    setTimeout( function(){ downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
+                 }
+                 //setTimeout( function(){ downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
+                 console.log("Exported CLUSTER SVG/PNG.");
             }
         } else if( lastchangeokk == 6 ){
             console.log("6 redo: exp ...", document.getElementById("expraw").checked);
@@ -2878,9 +3159,13 @@ function oldrun(){
                 console.log("Exported clusters NODES and EDGES files.");
             }
             if( document.getElementById("expclustervis").checked ){//svg cluster down
-                 //downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value );
-                 setTimeout( function(){ downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
-                 console.log("Exported CLUSTER SVG.");
+                 if( document.getElementById("expclustervispng").checked ){
+                    setTimeout( function(){ svgaspngdown( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
+                 } else {
+                    setTimeout( function(){ downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
+                 }
+                 //setTimeout( function(){ downsvg( document.getElementById( "theclust" ), "clust_"+document.getElementById("readynaming").value ) }, getrandomtimeshundret(10));
+                 console.log("Exported CLUSTER SVG/PNG.");
             }
         }
     }
@@ -2906,7 +3191,7 @@ function rerun( ){ //call, when
     }
     //write the config file
     if( document.getElementById("exportconf").checked ){
-        writeconfigfile( );
+        writeconfigfile( document.getElementById("readynaming").value );
     }
     //write the stopword file if needed
     if( document.getElementById("exportstopwordfile").checked ){
@@ -2954,6 +3239,7 @@ function newrun( ){//synchrone called by async file input function
                 mintextlen = rawinp[ nameoffile ].length; 
             }
         }
+        
         //check if a fixed length is given
         if( document.getElementById( "textlennormsize" ).value !== "" ){
             const tempmintextlen = parseInt( document.getElementById( "textlennormsize" ).value );
@@ -2977,7 +3263,7 @@ function newrun( ){//synchrone called by async file input function
                 inc = Math.floor( howmuch / takesome );
                 console.log(inc, howmuch, takesome, nameoffile);
             } else {
-                if(howmuch > takesome){
+                if(howmuch > takesome){ //that will never be used !?
                     howmuch = takesome;
                 }
             }
@@ -3043,7 +3329,10 @@ function newrun( ){//synchrone called by async file input function
             console.log("Exported statistics (counting) as: ", nameoffile+"_counting_"+document.getElementById("readynaming").value+".txt");
         } 
     }
-    
+    //z-Scores
+    if( document.getElementById("userelfreqdo").value == 6 ){
+        countsts = buildzscore( countsts );
+    }
     //last step add menus do corpus computations
         
     //compute the profile of each text and jon them into one matrix, appley the counting rules (i.e. culling)
@@ -3102,7 +3391,7 @@ function run( elm ){ //call when input is selected
     
     //write the config file
     if( document.getElementById("exportconf").checked ){
-        writeconfigfile( );
+        writeconfigfile( document.getElementById("readynaming").value );
     }
     //write the stopword file if needed
     if( document.getElementById("exportstopwordfile").checked ){
