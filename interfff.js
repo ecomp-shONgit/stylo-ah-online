@@ -1521,6 +1521,7 @@ function buildzscore( tsounts ){
 }
 /*application of normalization*/
 function applnorm( ainp ){
+    //console.log(ainp);
     let binp = normatext( ainp, analysisNormalform );
     
     if( document.getElementById("usestopwlist").checked ){
@@ -1537,18 +1538,22 @@ function applnorm( ainp ){
         if( document.getElementById("disambidiak").checked ){
             binp = disambiguDIAkritika( binp );
         }   
+        
         if( document.getElementById("disambidashes").checked ){
             binp = disambiguadashes( binp );
         } 
+        
         if( document.getElementById("uv").checked ){
             binp = deluv( binp );
         } 
         if( document.getElementById("ji").checked ){
             binp = delji( binp );
         } 
+        //console.log(binp);
         if( document.getElementById("womarkup").checked ){
             binp = delmakup( binp );
         } 
+        //console.log(binp);
         if( document.getElementById("delpunktu").checked ){
             binp = delinterp( binp );
         } 
@@ -1564,6 +1569,7 @@ function applnorm( ainp ){
         if( document.getElementById("delnumber").checked  ){
             binp = delnumbering( binp );
         } 
+        
         if( document.getElementById("hyph").checked ){
             binp = Trennstricheraus( disambiguadashes( binp ).split( " " ) ).join( " " );
         } 
@@ -1573,9 +1579,11 @@ function applnorm( ainp ){
         if( document.getElementById("sigma").checked ){
             binp = sigmaistgleich( binp );
         } 
+        
         if( document.getElementById("deldiak").checked ){
             binp = deldiak( binp );
         }
+        
         if( document.getElementById("deldiakmodern").checked ){
             binp = unicodediacriticsremove( binp );
         } 
@@ -1601,12 +1609,14 @@ function applnorm( ainp ){
             binp = GRvorbereitungT( binp );
         } 
     }
+    //console.log(binp);
     const tanslival = document.getElementById("translitsel").value;
     if( tanslival == 1 ){
         binp = TraslitAncientGreekLatin( binp );
     } else if( tanslival == 2 ){
         binp = TranslitLatinGreekLetters( binp );
     } 
+    //console.log(binp);
     const nfval = document.getElementById("normalformsel").value;
     if( nfval == 0 ){
         binp = normatext( binp, "NFKD" );
@@ -1624,6 +1634,7 @@ function applnorm( ainp ){
 
 /*application of decomposition and saveing to file*/
 function appldecomp( fn, ainp ){
+    //console.log(ainp)
     let binp = ainp;
     
     let thereturnresult = null;
@@ -1804,14 +1815,14 @@ function applcounting( alltoken ){
     
     
     
-    //sort and short
+    //sort and short -- take a only twice the amount auf MFW that is need
     let freqlist = Object.keys( tokenfreq ).map( function( k ) {
         return [ k, tokenfreq[ k ] ];
     });
     freqlist.sort((a, b) => b[1] - a[1]);
     //short the list according to the max / min given index
     let posminval = parseInt( document.getElementById( "mfwmin" ).value );
-    let posmaxval = parseInt( document.getElementById( "mfwmax" ).value );
+    let posmaxval = parseInt( document.getElementById( "mfwmax" ).value )*2;
     if( document.getElementById( "mfwmin" ).value.trim() == "" ){
         posminval = 0;
     }
@@ -2049,6 +2060,7 @@ function builddm( ttf ){
 }
 
 function clusterthetexts( DM, TS ){
+    //console.log(DM);
     const selection = parseInt( document.getElementById( "clustsel" ).value );
     const linkage = parseInt( document.getElementById( "hierarclustlinkage" ).value );
     if( selection == 0 || selection == 7 || selection == 8 || selection == 9 ){ //hierachical clustering
