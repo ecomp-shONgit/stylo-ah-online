@@ -105,22 +105,22 @@
     - <a href="https://github.com/ecomp-shONgit/stylo-ah-online">Browse the code on github.</a><br>
     
     <br><br>
-    Version: Beta 05.2024-07-23 </div>
+    Version: Beta 06.2026-01-26 </div>
 
     
         
     <form>
     
     <div class="partin">
-        <h1><a id="namingmen">Naming</a></h1>
+        <h1><a id="namingmen">Naming</a> (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#auswahl_und_anzahl_der_zeichen" target="_blank">see manual</a>)</h1>
             <select id="nametype" onchange="buildaname();">
                 <option selected value="0">No type selected</option>
                 <option value="1">protocol</option>
                 <option value="2">draft</option>
                 <option value="3">explanation</option>
                 <option value="4">experiment</option>
-            </select> <input type="text" id="nametypeown" value="" onchange="buildaname();"> Type <i>(Select/give a type, if this is not given by file ending.)</i><br>
-            <input type="text" id="namesubject" value="" onchange="buildaname();"> Subject <i>(Name the subject of the file.)</i><br>
+            </select> <input type="text" id="nametypeown" value="" onchange="buildaname();"> Type <i>(Select/give a type, if this is not given by file ending. <a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#typ_des_dokumentes" target="_blank">see manual</a>)</i><br>
+            <input type="text" id="namesubject" value="" onchange="buildaname();"> Subject <i>(Name the subject of the file. <a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#subjekt" target="_blank">see manual</a>)</i><br>
             <select id="namestate" onchange="buildaname();">
                 <option value="0">No state selected</option>
                 <option value="1">final</option>
@@ -128,19 +128,19 @@
                 <option value="3">first draft</option>
                 <option value="4">finished</option>
                 <option value="5">unfinished</option>
-            </select> <input type="text" id="namestateown" value="" onchange="buildaname();"> State <i>(Select/give a state, if this is not given by file ending.)</i><br>
-            <input type="text" id="nameid" value="" onchange="buildaname();"> ID <i>(Give the ID of the file.)</i><br>
-            <input type="text" id="namedatelook" value="" onchange="buildaname();"> Date <i>(The actual date, erase to reset.)</i><br>
+            </select> <input type="text" id="namestateown" value="" onchange="buildaname();"> State <i>(Select/give a state, if this is not given by file ending. <a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#status" target="_blank">see manual</a>)</i><br>
+            <input type="text" id="nameid" value="" onchange="buildaname();"> ID <i>(Give the ID of the file. <a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#id">see manual</a>)</i><br>
+            <input type="text" id="namedatelook" value="" onchange="buildaname();"> Date <i>(The actual date, erase to reset. <a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#datum">see manual</a>)</i><br>
             
-            <input type="text" id="nameversion" value="" onchange="buildaname();"> Version <i>(Choose a version of the file.)</i><br>
-            <input type="text" id="nameautorenname" value="" onchange="buildaname();"> Author name <i>(Fill in the name of the author.)</i><br>
-            <input type="text" id="nameendung" value="" onchange="buildaname();"> File ending <i>(Provide a file ending.)</i><br>
+            <input type="text" id="nameversion" value="" onchange="buildaname();"> Version <i>(Choose a version of the file. <a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#versionsnummer" target="_blank">see manual</a>)</i><br>
+            <input type="text" id="nameautorenname" value="" onchange="buildaname();"> Author name <i>(Fill in the name of the author. <a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#autorname" target="_blank">see manual</a>)</i><br>
+            <input type="text" id="nameendung" value="" onchange="buildaname();"> File ending <i>(Provide a file ending. <a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#dateiendung" target="_blank">see manual</a>)</i><br>
             <input type="text" id="readynaming" value="" size="80%" readonly="true"><br>
             <textarea id="protokollnaming" rows="4" cols="80"></textarea><br><i>(Log entry of naming section.)</i><br>     
     </div>
 
     <div class="partin">
-        <h1><a id="configurationmen">Configuration</a></h1>
+        <h1><a id="configurationmen">Configuration</a> (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#arbeitsschrittconfigurations-dateidatenbank" target="_blank">see manual</a>)</h1>
             <i>(Please check <a href="https://github.com/ecomp-shONgit/stylo-ah-online/tree/main/config-templates">
                github</a> to find some template config files.)
             </i>
@@ -150,9 +150,12 @@
                 save the configuration of the whole tool to file.)</i><br>
                 
             <input type="file" onchange="readinconfigurationfile(this);"/> <i>(Choose a existing 
-                stylo-online configuration file to set the configuration for stylo-online.)</i><br> 
+                stylo-online configuration file to set the configuration for stylo-online. <a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#input_eines_config_files" target="_blank">see manual</a>)</i><br> 
+                
+            <input type="file" multiple onchange="getmulticonfig(this);"/> <i>(Choose MULTIPLE config files 
+                    to perfom multiple analysis on one corpus. <a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#mehrer_config_files" target="_blank">see manual</a>)</i><br>
             
-            <h2>GEN config for SERIAL text analysis</h2>
+            <h2>GEN config for SERIAL text analysis (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#serien_von_config_files" target="_blank">see manual</a>)</h2>
             <input type="button" id="gencondecomp" value="Gen all config token" onclick="genallctoken();"> <i>(This will generate config files for each token version (1-3 gram), but leaves the other configuration unchanged.)</i><br>
             <input type="button" id="genconcount" value="Gen all config counting" onclick="genallccount();"> <i>(This will generate config files for each counting method, but leaves the other configuration unchanged.)</i><br>
             <input type="button" id="genconmeasures" value="Gen all config measures" onclick="genallcmeasure();"> <i>(This will generate config files for each measure, but leaves the other configuration unchanged.)</i><br>
@@ -161,18 +164,18 @@
             <h2>Config for stylo-ah-online display</h2>
             <input type="checkbox" id="styloahdisplengthdisp" name="styloahdisplengthdisp" checked /> Reduce size of intermediate result for display <i>(Checked: Just show a sample of the results (1000 token/signs). Not checked: Intermediate results will be shown in full length.)</i> <br>
             
-            <h2>Delete</h2>
+            <h2>Delete (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#reset_des_tools" target="_blank">see manual</a>)</h2>
             <input type="button" id="delconfid" value="Delete configuration" onclick="delconfigofall();"> <i>(This will delete the configuration.)</i><br>
             <input type="button" id="deldbid" value="Delete data base" onclick="deleteDB();"> <i>(This will delete the stored files and the results of the analysis.)</i><br>
             <input type="button" id="delaallid" value="Reset stylo-ah-online" onclick="resetall();"> <i>(This will reset stylo ah online to start an new analysis.)</i><br>
-            <input type="button" value="Refresh page" onclick="location.reload( true )"> <i>(Load new version of software omit browser cache.)</i><br>
+            <input type="button" value="Refresh page/tool" onclick="location.reload( true )"> <i>(Load new version of software omitt browser cache.)</i><br>
     </div>
 
 
 
     <div class="partin">
         <span class="sidebyside">
-            <h1 style="color:red; background:#7CCAAE;"><a id="inputmen">Input / Replication</a></h1>
+            <h1 style="color:red; background:#7CCAAE;"><a id="inputmen">Input </a> (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#arbeitsschrittinputreplication" target="_blank">see manual</a>)</h1>
                 <input type="file" id="nuimpbu" multiple onchange="run(this);"/> <i>(Just choose 
                     the CORPUS FILES, than the selection below will be applyed (start analysis). 
                     Data in the data base will be overwritten.)</i><br>
@@ -181,13 +184,11 @@
                     analysis AGAIN, if you made changes to the settings below. 
                     Data is taken from the data base.)</i><br>
                     
-                <input type="file" multiple onchange="getmulticonfig(this);"/> <i>(Choose MULTIPLE config files 
-                    to perfom multiple analysis on one corpus.)</i><br>
                     
                 <select id="selrerunfiles" onchange="resetfnames();" multiple>
                     
                 </select> <i>(Select some data from the database to rerun on. <input type="button" value="SHOW FILES IN USE" onclick="showallfnames()">)</i><br>
-            
+                <input type="button" value="Down. svg" onclick="downsvg( document.getElementById( 'thehistoraw' ), 'rawinputsignes')"> <i>Download the diagram of this processing step.</i><br>
                 <div id="loadshow" class="loadsymbol"></div>
                 <div id="errorshow" class="loadsymbol"></div>
             <h2>Note</h2>
@@ -201,7 +202,7 @@
 
     <div class="partin">
         <span class="sidebyside">
-        <h1><a id="normalizationmen">NORMALIZATION</a></h1>
+        <h1><a id="normalizationmen">NORMALIZATION</a> (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#arbeitsschrittnormalisierung_normalization" target="_blank">see manual</a>)</h1>
             <i>(Please check <a href="http://ecomparatio.net/~khk/NORM-DECOMP-DIST/textnorm.html">
                http://ecomparatio.net/~khk/NORM-DECOMP-DIST/textnorm.html</a> to see some examples of how the selection would work.)
             </i>
@@ -214,14 +215,14 @@
                 <option value="3">Unicode NFC </option>
             </select> <!--i>(Select one; it is the normalization of the output. During other normalization steps another unicode normalization maybe used.)</i><br-->
 
-            <h2>Word masking / stop words</h2>
+            <h2>Word masking / stop words (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#word_maskingstop_words" target="_blank">see manual</a>)</h2>
             <input type="radio" id="noneusestopwlist" name="stostolili" checked /> None<br>
             <input type="radio" id="usestopwlist" name="stostolili" /> Use Word masking <i>(Give back the string without stop words.)</i><br>
             <input type="radio" id="useinvstopwlist" name="stostolili" /> Use positiv stop word list <i>(Give back the string of only stop words.)</i><br>
             <input type="button" id="modshowstopwlist" value="Show stop word list" onclick="showstopwordlist()" /> <i>(Check this to apply stop word removal.)</i><br>
             <input type="file" onchange="readinstopwordlist(this);"/> <i>(Choose a existing stop word file (CSV format, divider: ;;).)</i><br>
             
-            <h2>Sign equalization</h2>
+            <h2>Sign equalization (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#sign_equalization" target="_blank">see manual</a>)</h2>
             <input type="checkbox" id="disambidiak"> Disambiguate diacritica <br>
             <input type="checkbox" id="disambidashes"> Disambiguate dashes <br>
             <input type="checkbox" id="uv"> Text output latin u-v <i>(replace all v with u)</i></br>
@@ -235,19 +236,19 @@
             <input type="checkbox" id="eqcase"> Text output equal case <i>(input a string and get it back with all small case letters)</i></br>
             <input type="checkbox" id="delbrackets"> Text output no brackets <i>(input string and get it back with no brackets)</i></br>
 
-            <h2>Markup / Format</h2>
+            <h2>Markup / Format (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#markupformat" target="_blank">see manual</a>)</h2>
             <input type="checkbox" id="womarkup"> Without markup <i>(input a string and get it back with markup (html / xml) removed)</i></br>
             <input type="checkbox" id="delpunktu"> Delete punctuation <i>(takes string and returns the string without punctuation)</i></br>
             <input type="checkbox" id="delnewl"> Without newline <i>(input string and get it back with linebreaks removed)</i></br>
 
-            <h2>Word level conversions</h2>
+            <h2>Word level conversions (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#word_level_conversions" target="_blank">see manual</a>)</h2>
             <input type="checkbox" id="elisions"> Elision expansion <i>(elusion it will be expanded)</i><br>
             <input type="checkbox" id="alphapriv"> Alpha privativum  / copulativum <i>(takes utf8 greek and splits the alpha privativum and copulativum from wordforms)</i></br>
             <input type="checkbox" id="delnumber"> Text output without numbering <i>(takes string, return string without the edition numbering i.e. [2])</i></br>
             <input type="checkbox" id="hyph"> Text output no hypenation <i>(removes hyphenation)</i></br>
  
 
-            <h2>Combinations</h2>
+            <h2>Combinations (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#combinations" target="_blank">see manual</a>)</h2>
             <!--i>(Select one of the combined normalization functions (none of the single steps is used).)</i></br>
             <input type="checkbox" id="basictextnorm"> Text output basic norm <i>(basic equalization and hypenation reversal)</i></br>
             <input type="checkbox" id="delall"> Text output all deleted <i>(deletes UV/JI, brackets, sigma, lower, hyphenation, ligatures, punctuation, edition numbering, unknown signs, diakritics)</i></br>
@@ -259,7 +260,7 @@
                 <option value="2">Text output all deleted <i>(deletes UV/JI, brackets, sigma, lower, hyphenation, ligatures, punctuation, edition numbering, unknown signs, diakritics)</i></option>
                 <!--option value="3">Text output is a combination of steps <i>(diacritics disambiguation, normalization, hyphenation removal, linebreak to space, punctuation separation and bracket removal)</i></option-->
             </select> <i>(Select one of the combined normalization functions (none of the single steps is used).)</i><br>
-            <h2>Translitteration</h2>
+            <h2>Translitteration (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#transliteration" target="_blank">see manual</a>)</h2>
             <!--i>(Select one of the transliterations.)</i><br>
             <input type="checkbox" id="translgrla"> Text transliteration (gr-la) <i>(takes greek utf8 string and returns transliterated latin utf8 string)</i></br>
             <input type="checkbox" id="transllagr"> Text transliteration (la-gr) <i>(takes latin utf8 string and returns transliterated greek utf8 string)</i></br-->
@@ -269,7 +270,7 @@
                 <option value="1">Text transliteration (gr-la) <i>(takes greek utf8 string and returns transliterated latin utf8 string)</option>
                 <option value="2">Text transliteration (la-gr) <i>(takes latin utf8 string and returns transliterated greek utf8 string)</option>
             </select> <i>(Select one of the transliterations.)</i><br>
-        
+            <input type="button" value="Down. svg" onclick="downsvg( document.getElementById( 'thehistonorm' ), 'normedsignes')"> <i>Download the diagram of this processing step.</i><br>
         <h2>Note</h2>
         <textarea id="protokollnorm" rows="4" cols="80"></textarea><br> <i>(Log entry for the normalization section.)</i><br>
         </span>
@@ -278,10 +279,11 @@
 
     <div class="partin">
         <span class="sidebyside">
-        <h1><a id="tokenmen">FEATURES / DECOMPOSITION / TOKEN</a></h1> 
+        <h1><a id="tokenmen">FEATURES / DECOMPOSITION / TOKEN</a> (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#arbeitsschrittzerlegung_featuresdecompositiontoken" target="_blank">see manual</a>)</h1> 
             <i>(The word level decomposition and the gram decomposition will be combined. Check <a href="http://ecomparatio.net/~khk/NORM-DECOMP-DIST/zerl.html">http://ecomparatio.net/~khk/NORM-DECOMP-DIST/zerl.html</a> for some examples to see how decomposition will work.)</i>
-            
-            <h2>Word level decomposition</h2>
+            <h2>Visual representation</h2>
+            <input type="checkbox" id="tokenglock" name="tokenglock"/> <i>(check this to get the token diagramm as "normal" distribution)</i><br>
+            <h2>Word level decomposition (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#word_level_decomposition" target="_blank">see manual</a>)</h2>
             <input type="radio" id="sepdiak" style="display:none;" name="khde"> <!--span>Separation of diakritics</span-->  <!--i>(takes string and returns array of array of diakritica and array of letters)</i></br-->
 
             <input type="radio" id="noneradio" name="khde" checked /> None<br>
@@ -295,7 +297,7 @@
             <input type="radio" id="justgrosz" name="khde"> Big words <i>(string with just big words (not stopwords))</i><br>
             
 
-            <h2>General N-Gram decomposition</h2>
+            <h2>General N-Gram decomposition (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#general_n-gram_decomposition" target="_blank">see manual</a>)</h2>
 
             <!--input type="checkbox" id="ngram"> Use N-Gram <i>(check this to enable ngram decomposition and use the configuration below)</i><br-->
             <select id="gramsel">
@@ -321,7 +323,7 @@
             </select> Padding <i>(used for sign level of words)</i><br>
             <input type="checkbox" id="gramsteptogramsize" name="gramsteptogramsize"/> <i>(check this to set the increment of the gram building to gram size)</i><br>
             <input type="text" id="vocabularsizebpe" value=""> Size of vocabulary <i>(used for the (not byte) pair encoding tokenizer)</i><br>
-        
+            <input type="button" value="Down. svg" onclick="downsvg( document.getElementById( 'thehistorawtoken' ), 'tokendistribution')"> <i>Download the diagram of this processing step.</i><br>
         <h2>Note</h2>
         <textarea id="protokolltoken" rows="4" cols="80"></textarea><br><i>(Log entry for the token section.)</i><br>
         </span>
@@ -330,7 +332,7 @@
         
     <div class="partin">
         <span class="sidebyside">
-        <h1><a id="countingmen">SELECTION / COUNTING</a></h1>
+        <h1><a id="countingmen">SELECTION / COUNTING</a> (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#arbeitsschrittzaehlung_selectioncounting" target="_blank">see manual</a>)</h1>
         <select id="userelfreqdo">
                      <option value="0">absolute frequency</option>
                      <option value="1">relative frequency</option>
@@ -341,24 +343,24 @@
                      <option value="6">z-Scores</option>
         </select><i>(select the counting methode)</i></br>
         
-        <h2>Most frequent token / words </h2>
+        <h2>Most frequent token / words (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#most_frequent_tokenwords_per_text" target="_blank">see manual</a>)</h2>
         <input type="checkbox" id="mfwpertext">  MFW per text <i> get the most frequnet word from each input text</i><br>
         <input type="text" id="mfwmin" value="0"> Min value <i>(position in frequency ordered list)</i><br>
         <input type="text" id="mfwmax" value="0"> Max value <i>(position in frequency ordered list)</i><br>
         
-        <h2>Culling (per corpus)</h2>
+        <h2>Culling (per corpus) (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#culling" target="_blank">see manual</a>)</h2>
         <input type="text" id="mfwculllistcuttoff" value="0" style="display:none"><!--span> Maximum lenght of word (token) frequency list; will limit corpus frequnecy list.</span><br-->
         <input type="text" id="cullingmin" value="0"> Min value <i>(per cent of presents of a token in all texts)</i><br>
         <input type="text" id="cullingmax" value="0"> Max value <i>(per cent)</i><br>
         <input type="text" id="mfwcullinc" value="1" style="display:none;">
         
-        <h2>Text length normalization</h2>
+        <h2>Text length normalization (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#textlaengen_normalisierung" target="_blank">see manual</a>)</h2>
         <input type="checkbox" id="textlennorm"> Compare fractions of texts <i>(smallest text gives the length; none other method is applied, only on first run on corpus).</i> <br>
         <input type="text" id="textlennormsize"> Fraction length <i>(if a number is provided, than every text will be split into frations of that size on sign level).</i><br>
         <!--h2>Stepped series (per corpus)</h2-->
          <!--span>Series step increment</span> <i>(if you have 500 word (token) frequencies and increment set to 100, you compute with 100 mfw (most frequnet words), 200, 300, 400 and 500 mfw)</i><br-->
         <input type="text" id="textlennormpartscount"> Count of fractions <i>(if a number is provided, than only that number or less text fractions will be used).</i><br>
-
+        <input type="button" value="Down. svg" onclick="downsvg( document.getElementById( 'thebarplotprofile' ), 'thebarplotprofile')"> <i>Download the diagram of this processing step.</i><br>
         
         <h2>Note</h2>
         <textarea id="protokollcount" rows="4" cols="80"></textarea><br><i>(Log entry for the counting section.)</i><br>
@@ -368,7 +370,7 @@
 
     <div class="partin">
         <span class="sidebyside">
-        <h1><a id="measuremen">MEASURE SELECTION</a></h1>
+        <h1><a id="measuremen">MEASURE SELECTION</a> (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#arbeitsschrittmassanwendung_measure_selection" target="_blank">see manual</a>)</h1>
         <i>(Please check <a href="http://ecomparatio.net/~khk/measuredisplay">
                http://ecomparatio.net/~khk/measuredisplay</a> to see a discription and comparison of the measures usable. See <a href="http://ecomparatio.net/~khk/NORM-DECOMP-DIST/index.php">http://ecomparatio.net/~khk/NORM-DECOMP-DIST/index.php</a> for some examples.)
             </i><br><br>
@@ -420,7 +422,8 @@
             <option value="edersimpleM">eder simple</option>
             <option value="burrowsdeltaM">burrows delta</option>
             <option value="argamonlineardeltaM">argamon linear delta</option>
-            <option value="edersdeltaM">eders delta</option> 
+            <option value="edersdeltaM">eders delta</option>
+            <option value="edersdeltaNeuM">eders delta NEU</option> 
             <option value="argamonsquadraticdeltaM"> argamons quadratic delta</option>
 
             <option value="wasserst1dM">wasserstein 1d</option>
@@ -428,6 +431,10 @@
          </select> Measure selection<br>
         <input type="text" id="measureadd" value="0"> Measure order <i>(the order of the measure, additional to minkowski, burrows delta, argamon linear delta, eders delta, argamons quadratic delta, wasserst 1d, gower)</i><br>
             <br>
+        <h2>Rare token</h2>
+        <input type="text" id="measureraretoken" value="3"> Rare token rank <i>(how many of the last ranks of token should be used, default: 3)</i><br>
+        <input type="button" value="Down. svg" onclick="downsvg( document.getElementById( 'thedistheat' ), 'thedistheat')"> <i>Download the diagram of this processing step.</i><br>
+        
         <h2>Note</h2>
         <textarea id="protokollmeasure" rows="4" cols="80"></textarea><br><i>(Log entry for the comparing section.)</i><br>
         </span>
@@ -436,11 +443,14 @@
 
     <div class="partin">
         <span class="sidebyside">
-        <h1><a id="clusteringmen">CLUSTERING</a></h1>
+        <h1><a id="clusteringmen">CLUSTERING</a> (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#arbeitsschrittgruppierung_clustering" target="_blank">see manual</a>)</h1>
         <select id="clustsel">
             <option value="9">network of hierarchical CA</option>
             <option value="7">hierarchical cluster analysis</option>
+            <option value="11">hierarchical cluster analysis + rare token graph</option>
             <option value="0">strict hierarchical cluster analysis</option>
+            <option value="10">strict hierarchical cluster analysis + rare token graph</option>
+            
             <!--option value="1">MDS (eigenvectors)</option-->
             <option value="2">MDS (angels)</option>
             <!--option value="3">PCA (cov.)</option-->
@@ -471,7 +481,7 @@
     </div> 
 
     <div class="partin">
-        <h1><a id="exportmen">EXPORT</a></h1>
+        <h1><a id="exportmen">EXPORT</a> (<a href="http://replicatio.science/dokuwiki/doku.php/de/styloahonline/handbuch#arbeitsschrittexport" target="_blank">see manual</a>)</h1>
         <h2>Export Configuration / Presets</h2>
         <input type="checkbox" id="exportconf" checked> Export config as text file<br>
         <input type="checkbox" id="exportstopwordfile" checked> Export stop words as CSV file<br>
@@ -487,6 +497,7 @@
         <input type="checkbox" id="expdistmatrix" checked> Export distance matrix <i>(as text file; usable as gephi import)</i><br>
         <input type="checkbox" id="expclustertext" checked> Export cluster analysis <i>(as nodes and edges file; for example as gephi import)</i><br>
         <input type="checkbox" id="expclustervis" checked> Export cluster visualization <i>(as SVG / PNG)</i><br>
+        <input type="checkbox" id="explongtailesti" checked> Export long tail estimation <i>(as CSV file)</i><br>
         
         <h2>Raster image export</h2>
         <input type="button" value="Download Graph-Visualization" onclick="downpngofgraph()"><br>
@@ -510,7 +521,9 @@
     <a href="https://www.uni-trier.de">University Trier</a> / 
     <a href="https://www.uni-trier.de/universitaet/fachbereiche-faecher/fachbereich-iii/faecher/geschichte/profil/fachgebiete/alte-geschichte-1/team">Ancient History Trier</a> / 
     <a href="http://www.eaqua.net/~khk/eaquaportal/">eAQUA digital resources</a> /
-    <a href="https://www.volkswagenstiftung.de/en"><img src="vwstlogo.svg"/ style="width:10%; margin-right:10%;"></a>
+    <a href="http://www.replicatio.science/#m4">Imprint</a> /
+    <a href="https://www.volkswagenstiftung.de/en"><img src="vwstlogo.svg"/ style="width:10%; margin-right:10%;"></a> 
+    
     </div>
 
 
